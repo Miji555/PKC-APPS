@@ -15,6 +15,23 @@ export const CategorySection: React.FC<CategorySectionProps> = ({ category }) =>
     return match ? match[1] : null;
   };
 
+  const getFirstLetter = (name: string) => {
+    return name.charAt(0).toUpperCase();
+  };
+
+  const getBgColor = (name: string) => {
+    const colors = [
+      'bg-red-500', 'bg-blue-500', 'bg-green-500', 'bg-yellow-500', 
+      'bg-purple-500', 'bg-pink-500', 'bg-indigo-500', 'bg-orange-500',
+      'bg-teal-500', 'bg-cyan-500'
+    ];
+    let hash = 0;
+    for (let i = 0; i < name.length; i++) {
+      hash = name.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    return colors[Math.abs(hash) % colors.length];
+  };
+
   return (
     <div className="border border-[#d0d7de] rounded-xl overflow-hidden bg-white shadow-sm mb-6">
       <div className="bg-[#f6f8fa] px-4 py-3 border-b border-[#d0d7de] flex items-center justify-between">
@@ -38,21 +55,10 @@ export const CategorySection: React.FC<CategorySectionProps> = ({ category }) =>
               className="px-4 py-4 hover:bg-[#f6f8fa] transition-colors flex items-center justify-between group"
             >
               <div className="flex items-center space-x-4 overflow-hidden">
-                <div className="w-14 h-14 rounded-[12px] overflow-hidden flex-shrink-0 shadow-sm border border-gray-100 bg-gray-50 flex items-center justify-center">
-                  {app.icon ? (
-                    <img 
-                      src={app.icon} 
-                      alt={app.name} 
-                      className="w-full h-full object-cover"
-                      onError={(e) => {
-                        e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(app.name)}&background=random&size=128`;
-                      }}
-                    />
-                  ) : (
-                    <div className="w-full h-full bg-gray-100 flex items-center justify-center">
-                      <span className="text-xs text-gray-400">?</span>
-                    </div>
-                  )}
+                <div className={`w-14 h-14 rounded-[12px] flex-shrink-0 shadow-sm border border-black/5 flex items-center justify-center ${getBgColor(app.name)}`}>
+                  <span className="text-white text-2xl font-bold">
+                    {getFirstLetter(app.name)}
+                  </span>
                 </div>
                 <div className="flex flex-col truncate">
                   <a 

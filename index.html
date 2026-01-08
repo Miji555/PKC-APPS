@@ -71,21 +71,21 @@
             name: 'Minecraft: สร้างโลกของคุณ',
             subtitle: 'เกมจำลองการสร้างบล็อก',
             url: 'https://apps.apple.com/th/app/minecraft/id479516143',
-            icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/91/9e/7b/919e7b30-c831-50e5-7973-206e0176f183/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/230x230bb.png'
+            icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/91/9e/7b/919e7b30-c831-50e5-7973-206e0176f183/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/512x512bb.png'
           },
           {
             id: 'rov',
             name: 'Garena RoV: 5v5 Festival',
             subtitle: 'สุดยอดเกม MOBA 5v5 บนมือถือ',
             url: 'https://apps.apple.com/th/app/garena-rov-5v5-festival/id1150337432',
-            icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/21/92/8a/21928ab1-2a6c-e06a-9351-831518f9746b/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/230x230bb.png'
+            icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/21/92/8a/21928ab1-2a6c-e06a-9351-831518f9746b/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/512x512bb.png'
           },
           {
             id: 'freefire',
             name: 'Garena Free Fire: The Chaos',
             subtitle: 'เกมยิงปืนเอาตัวรอดอันดับ 1',
             url: 'https://apps.apple.com/th/app/garena-free-fire-the-chaos/id1300146617',
-            icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4a/01/21/4a01217e-976e-578a-c97a-9694769036c0/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/230x230bb.png'
+            icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4a/01/21/4a01217e-976e-578a-c97a-9694769036c0/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/512x512bb.png'
           }
         ]
       },
@@ -98,18 +98,31 @@
             name: 'Meitu- Photo & Video Editor',
             subtitle: 'แต่งรูปสวยและวีดีโอ',
             url: 'https://apps.apple.com/th/app/meitu-photo-video-editor/id416048305',
-            icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4a/04/00/4a040082-9092-23c5-6804-06927d118933/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/230x230bb.png'
+            icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4a/04/00/4a040082-9092-23c5-6804-06927d118933/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/512x512bb.png'
           },
           {
             id: 'spotify',
             name: 'Spotify - Music and Podcasts',
             subtitle: 'ฟังเพลงและพอดแคสต์',
             url: 'https://apps.apple.com/th/app/spotify-music-and-podcasts/id324684580',
-            icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7e/f0/a0/7ef0a012-70b1-129a-2481-2090875e656d/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/230x230bb.png'
+            icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7e/f0/a0/7ef0a012-70b1-129a-2481-2090875e656d/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/512x512bb.png'
           }
         ]
       }
     ];
+
+    const getBgColor = (name) => {
+      const colors = [
+        'bg-red-500', 'bg-blue-500', 'bg-green-500', 'bg-yellow-500', 
+        'bg-purple-500', 'bg-pink-500', 'bg-indigo-500', 'bg-orange-500',
+        'bg-teal-500', 'bg-cyan-500'
+      ];
+      let hash = 0;
+      for (let i = 0; i < name.length; i++) {
+        hash = name.charCodeAt(i) + ((hash << 5) - hash);
+      }
+      return colors[Math.abs(hash) % colors.length];
+    };
 
     const getAppleId = (url) => {
       if (!url) return null;
@@ -161,16 +174,10 @@
               return (
                 <div key={app.id} className="px-4 py-4 hover:bg-[#f6f8fa] transition-colors flex items-center justify-between group">
                   <div className="flex items-center space-x-4 overflow-hidden">
-                    <div className="w-14 h-14 rounded-[12px] overflow-hidden flex-shrink-0 shadow-sm border border-gray-100 bg-gray-50">
-                      <img 
-                        src={app.icon} 
-                        alt={app.name}
-                        className="w-full h-full object-cover" 
-                        crossOrigin="anonymous"
-                        onError={(e) => {
-                          e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(app.name)}&background=random&size=128`;
-                        }}
-                      />
+                    <div className={`w-14 h-14 rounded-[12px] flex-shrink-0 shadow-sm border border-black/5 flex items-center justify-center ${getBgColor(app.name)}`}>
+                      <span className="text-white text-2xl font-bold">
+                        {app.name.charAt(0).toUpperCase()}
+                      </span>
                     </div>
                     <div className="flex flex-col truncate">
                       <a href={href} className="text-[#0969da] font-semibold hover:underline text-base truncate">{app.name}</a>
@@ -192,16 +199,10 @@
 
         return (
             <div className="flex flex-col items-center pt-8 px-4 text-center animate-in">
-                 <div className="w-28 h-28 rounded-[24px] overflow-hidden mb-6 shadow-xl border border-gray-100">
-                    <img 
-                      src={app.icon} 
-                      alt={app.name}
-                      className="w-full h-full object-cover" 
-                      crossOrigin="anonymous"
-                      onError={(e) => {
-                        e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(app.name)}&background=random&size=256`;
-                      }}
-                    />
+                 <div className={`w-28 h-28 rounded-[24px] mb-6 shadow-xl border border-black/5 flex items-center justify-center ${getBgColor(app.name)}`}>
+                    <span className="text-white text-5xl font-bold">
+                      {app.name.charAt(0).toUpperCase()}
+                    </span>
                  </div>
                  <h1 className="text-3xl font-bold text-[#1f2328] mb-1">{app.name}</h1>
                  <h2 className="text-xl font-semibold text-[#0969da] mb-8">Download & update</h2>
@@ -247,7 +248,7 @@
                 </div>
             ) : <DetailView appId={currentAppId} />}
             <footer className="mt-20 pt-8 border-t border-[#d0d7de] text-center text-[#636c76] text-[10px] uppercase tracking-widest font-medium">
-              <p>© {new Date().getFullYear()} PKC APPS • ระบบดาวน์โหลดและอัปเดตอัตโนมัติ</p>
+              <p>© {new Date().getFullYear()} PKC APPS • ระบบดาวน์โหลดและอัปเดต</p>
             </footer>
           </div>
         </div>
