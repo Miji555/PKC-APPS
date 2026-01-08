@@ -9,7 +9,7 @@ export const Header: React.FC = () => {
         Download and Updates
       </h1>
       <p className="text-[#636c76]">
-        Download and update เท่านั้นนะคะ อยากได้แอพไหนแจ้ง 
+        Download and update เท่านั้นนะครับ อยากได้แอพไหนแจ้ง 
         <a 
           href={`https://instagram.com/${CONTACT_IG}`} 
           target="_blank" 
