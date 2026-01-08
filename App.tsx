@@ -1,9 +1,8 @@
 
 import React from 'react';
-import { CATEGORIES, CONTACT_IG } from './constants.ts';
+import { CATEGORIES } from './constants.ts';
 import { CategorySection } from './components/CategorySection.tsx';
 import { Header } from './components/Header.tsx';
-import { ContactInfo } from './components/ContactInfo.tsx';
 
 const App: React.FC = () => {
   return (
@@ -11,11 +10,6 @@ const App: React.FC = () => {
       <div className="w-full max-w-3xl">
         {/* Header Section */}
         <Header />
-
-        {/* Contact Alert Box */}
-        <div className="mb-6">
-          <ContactInfo igHandle={CONTACT_IG} />
-        </div>
 
         {/* App Lists */}
         <div className="space-y-6">

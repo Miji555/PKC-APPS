@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { CONTACT_IG } from '../constants.ts';
 
 export const Header: React.FC = () => {
   return (
@@ -9,15 +8,7 @@ export const Header: React.FC = () => {
         Download and Updates
       </h1>
       <p className="text-[#636c76]">
-        Download and update เท่านั้นนะครับ อยากได้แอพไหนแจ้ง 
-        <a 
-          href={`https://instagram.com/${CONTACT_IG}`} 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="ml-1 text-[#0969da] font-medium hover:underline"
-        >
-          ig {CONTACT_IG}
-        </a>
+        Download and update เท่านั้นนะครับ
       </p>
     </div>
   );

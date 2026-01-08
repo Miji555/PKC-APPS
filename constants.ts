@@ -30,7 +30,22 @@ export const CATEGORIES: Category[] = [
   {
     id: 'utility',
     title: 'Utility',
-    apps: []
+    apps: [
+      {
+        id: 'meitu',
+        name: 'Meitu- Photo & Video Editor',
+        subtitle: 'แต่งรูปสวยและวีดีโอ',
+        url: 'https://apps.apple.com/th/app/meitu-photo-video-editor/id416048305',
+        icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4a/04/00/4a040082-9092-23c5-6804-06927d118933/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/100x100bb.png'
+      },
+      {
+        id: 'spotify',
+        name: 'Spotify - Music and Podcasts',
+        subtitle: 'ฟังเพลงและพอดแคสต์',
+        url: 'https://apps.apple.com/th/app/spotify-music-and-podcasts/id324684580',
+        icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7e/f0/a0/7ef0a012-70b1-129a-2481-2090875e656d/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/100x100bb.png'
+      }
+    ]
   }
 ];
 
