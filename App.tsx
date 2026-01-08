@@ -1,9 +1,9 @@
 
 import React from 'react';
-import { CATEGORIES, CONTACT_IG } from './constants';
-import { CategorySection } from './components/CategorySection';
-import { Header } from './components/Header';
-import { ContactInfo } from './components/ContactInfo';
+import { CATEGORIES, CONTACT_IG } from './constants.ts';
+import { CategorySection } from './components/CategorySection.tsx';
+import { Header } from './components/Header.tsx';
+import { ContactInfo } from './components/ContactInfo.tsx';
 
 const App: React.FC = () => {
   return (

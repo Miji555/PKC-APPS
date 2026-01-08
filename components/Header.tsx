@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { CONTACT_IG } from '../constants';
+import { CONTACT_IG } from '../constants.ts';
 
 export const Header: React.FC = () => {
   return (
