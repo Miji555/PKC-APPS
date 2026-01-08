@@ -9,6 +9,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- เพิ่ม Babel Standalone สำหรับแปลงโค้ด React ใน Browser โดยตรง -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  
   <style>
     body {
       font-family: 'Inter', 'Noto Sans Thai', sans-serif;
@@ -16,11 +19,13 @@
       color: #1a1a1a;
     }
   </style>
-<script type="importmap">
+
+  <script type="importmap">
 {
   "imports": {
+    "react": "https://esm.sh/react@18.2.0",
+    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
     "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3",
     "react/": "https://esm.sh/react@^19.2.3/"
   }
 }
@@ -28,6 +33,184 @@
 </head>
 <body>
   <div id="root"></div>
-  <script type="module" src="index.tsx"></script>
+
+  <!-- รวมโค้ดทั้งหมดไว้ที่นี่เพื่อให้ทำงานได้ทันทีบน GitHub Pages -->
+  <script type="text/babel" data-type="module">
+    import React from 'react';
+    import ReactDOM from 'react-dom/client';
+
+    // --- Data & Constants ---
+    const CONTACT_IG = 'ddddddni._o';
+
+    const CATEGORIES = [
+      {
+        id: 'games',
+        title: 'Games',
+        apps: [
+          {
+            id: 'minecraft',
+            name: 'Minecraft: สร้างโลกของคุณ',
+            subtitle: 'เกมจำลองการสร้างบล็อก',
+            url: 'https://apps.apple.com/th/app/minecraft/id479516143',
+            icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/91/9e/7b/919e7b30-c831-50e5-7973-206e0176f183/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/100x100bb.png'
+          }
+        ]
+      },
+      {
+        id: 'sns',
+        title: 'SNS',
+        apps: []
+      },
+      {
+        id: 'utility',
+        title: 'Utility',
+        apps: []
+      }
+    ];
+
+    // --- Components ---
+
+    const Header = () => {
+      return (
+        <div className="mb-8 border-b border-[#d0d7de] pb-6">
+          <h1 className="text-2xl font-semibold text-[#1f2328] mb-2">
+            Download and Updates
+          </h1>
+          <p className="text-[#636c76]">
+            Download and update เท่านั้นนะครับ อยากได้แอพไหนแจ้ง 
+            <a 
+              href={`https://instagram.com/${CONTACT_IG}`} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="ml-1 text-[#0969da] font-medium hover:underline"
+            >
+              ig {CONTACT_IG}
+            </a>
+          </p>
+        </div>
+      );
+    };
+
+    const ContactInfo = ({ igHandle }) => {
+      return (
+        <div className="p-4 rounded-md border border-[#d0d7de] bg-[#f6f8fa] flex items-start space-x-3">
+          <div className="mt-1">
+            <svg className="w-5 h-5 text-[#0969da]" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M0 8a8 8 0 1116 0A8 8 0 010 8zm8-6.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM6.5 7.75A.75.75 0 017.25 7h1.5a.75.75 0 010 1.5h-1.5a.75.75 0 01-.75-.75zM8.25 10a.75.75 0 00-1.5 0v1.25a.75.75 0 001.5 0V10zM8 4a1 1 0 110 2 1 1 0 010-2z"></path>
+            </svg>
+          </div>
+          <div>
+            <p className="text-[#1f2328] font-medium">
+              อยากได้แอพไหน ติดต่อ <a href={`https://instagram.com/${igHandle}`} target="_blank" rel="noopener noreferrer" className="text-[#0969da] hover:underline font-bold tracking-wide">IG: {igHandle}</a>
+            </p>
+          </div>
+        </div>
+      );
+    };
+
+    const CategorySection = ({ category }) => {
+      if (category.apps.length === 0) return null;
+
+      return (
+        <div className="border border-[#d0d7de] rounded-md overflow-hidden">
+          {/* Category Header Bar */}
+          <div className="bg-[#f6f8fa] px-4 py-3 border-b border-[#d0d7de] flex items-center justify-between">
+            <div className="flex items-center space-x-2">
+              <svg className="w-4 h-4 text-[#636c76]" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M1.75 1A1.75 1.75 0 000 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0016 13.25v-8.5A1.75 1.75 0 0014.25 3H7.5a.25.25 0 01-.2-.1l-.9-1.2c-.33-.44-.85-.7-1.4-.7h-3.25z"></path>
+              </svg>
+              <span className="font-semibold text-[#1f2328] text-sm">{category.title}</span>
+            </div>
+            <span className="text-xs text-[#636c76]">{category.apps.length} items</span>
+          </div>
+          
+          {/* App Rows */}
+          <div className="divide-y divide-[#d0d7de]">
+            {category.apps.map((app) => (
+              <div 
+                key={app.id}
+                className="px-4 py-3 hover:bg-[#f6f8fa] transition-colors flex items-center justify-between group"
+              >
+                <div className="flex items-center space-x-3 overflow-hidden">
+                  {app.icon ? (
+                    <img 
+                      src={app.icon} 
+                      alt="" 
+                      className="w-5 h-5 rounded-sm flex-shrink-0"
+                    />
+                  ) : (
+                    <svg className="w-4 h-4 text-[#636c76] flex-shrink-0" viewBox="0 0 16 16" fill="currentColor">
+                      <path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l3.25 3.25c.33.328.513.773.513 1.237v9.25A1.75 1.75 0 0113.586 16H3.75A1.75 1.75 0 012 14.25V1.75zm1.75-.25a.25.25 0 00-.25.25v12.5c0 .138.112.25.25.25h9.836a.25.25 0 00.25-.25V5.25H10.25a.75.75 0 01-.75-.75V1.5H3.75zM11 4.25h2.336L11 1.914v2.336z"></path>
+                    </svg>
+                  )}
+                  <div className="flex flex-col truncate">
+                    <a 
+                      href={app.url}
+                      className="text-[#0969da] font-medium hover:underline text-sm truncate"
+                    >
+                      {app.name}
+                    </a>
+                    {app.subtitle && (
+                      <span className="text-[11px] text-[#636c76] truncate">
+                        {app.subtitle}
+                      </span>
+                    )}
+                  </div>
+                </div>
+                
+                <a 
+                  href={app.url}
+                  className="text-xs font-medium text-[#1f2328] bg-white border border-[#d0d7de] px-2 py-1 rounded shadow-sm hover:bg-[#f3f4f6] transition-colors whitespace-nowrap opacity-0 group-hover:opacity-100 focus:opacity-100"
+                >
+                  Download
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    };
+
+    const App = () => {
+      return (
+        <div className="min-h-screen bg-white py-8 px-4 flex flex-col items-center">
+          <div className="w-full max-w-3xl">
+            {/* Header Section */}
+            <Header />
+
+            {/* Contact Alert Box */}
+            <div className="mb-6">
+              <ContactInfo igHandle={CONTACT_IG} />
+            </div>
+
+            {/* App Lists */}
+            <div className="space-y-6">
+              {CATEGORIES.map((category) => (
+                <CategorySection key={category.id} category={category} />
+              ))}
+            </div>
+
+            {/* Footer */}
+            <footer className="mt-12 pt-8 border-t border-[#d0d7de] text-center text-[#636c76] text-sm">
+              <p>© {new Date().getFullYear()} PKC APPS • ระบบดาวน์โหลดและอัปเดตอัตโนมัติ</p>
+            </footer>
+          </div>
+        </div>
+      );
+    }
+
+    // --- Mount ---
+    const rootElement = document.getElementById('root');
+    if (!rootElement) {
+      throw new Error("Could not find root element to mount to");
+    }
+
+    const root = ReactDOM.createRoot(rootElement);
+    root.render(
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    );
+  </script>
 </body>
 </html>
