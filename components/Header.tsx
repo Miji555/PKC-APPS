@@ -15,7 +15,7 @@ export const Header: React.FC = () => {
         />
       </div>
       <h1 className="text-3xl font-bold text-[#1f2328] mb-2 tracking-tight">
-        Download and Updates
+        Download and update
       </h1>
       <p className="text-[#636c76] text-lg">
         Download and update เท่านั้น
