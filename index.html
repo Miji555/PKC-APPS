@@ -12,6 +12,24 @@
   <!-- เพิ่ม Babel Standalone สำหรับแปลงโค้ด React ใน Browser โดยตรง -->
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   
+  <!-- Script สำหรับสร้าง Smart App Banner Meta Tag อัตโนมัติเมื่อมี appId ใน URL -->
+  <script>
+    (function() {
+      try {
+        const urlParams = new URLSearchParams(window.location.search);
+        const appId = urlParams.get('appId');
+        if (appId) {
+          const meta = document.createElement('meta');
+          meta.name = 'apple-itunes-app';
+          meta.content = 'app-id=' + appId;
+          document.head.appendChild(meta);
+        }
+      } catch (e) {
+        console.error('Error injecting smart banner:', e);
+      }
+    })();
+  </script>
+
   <style>
     body {
       font-family: 'Inter', 'Noto Sans Thai', sans-serif;
@@ -67,6 +85,13 @@
         apps: []
       }
     ];
+
+    // --- Helpers ---
+    const getAppleId = (url) => {
+      if (!url) return null;
+      const match = url.match(/id(\d+)/);
+      return match ? match[1] : null;
+    };
 
     // --- Components ---
 
@@ -126,69 +151,149 @@
           
           {/* App Rows */}
           <div className="divide-y divide-[#d0d7de]">
-            {category.apps.map((app) => (
-              <div 
-                key={app.id}
-                className="px-4 py-3 hover:bg-[#f6f8fa] transition-colors flex items-center justify-between group"
-              >
-                <div className="flex items-center space-x-3 overflow-hidden">
-                  {app.icon ? (
-                    <img 
-                      src={app.icon} 
-                      alt="" 
-                      className="w-5 h-5 rounded-sm flex-shrink-0"
-                    />
-                  ) : (
-                    <svg className="w-4 h-4 text-[#636c76] flex-shrink-0" viewBox="0 0 16 16" fill="currentColor">
-                      <path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l3.25 3.25c.33.328.513.773.513 1.237v9.25A1.75 1.75 0 0113.586 16H3.75A1.75 1.75 0 012 14.25V1.75zm1.75-.25a.25.25 0 00-.25.25v12.5c0 .138.112.25.25.25h9.836a.25.25 0 00.25-.25V5.25H10.25a.75.75 0 01-.75-.75V1.5H3.75zM11 4.25h2.336L11 1.914v2.336z"></path>
-                    </svg>
-                  )}
-                  <div className="flex flex-col truncate">
-                    <a 
-                      href={app.url}
-                      className="text-[#0969da] font-medium hover:underline text-sm truncate"
-                    >
-                      {app.name}
-                    </a>
-                    {app.subtitle && (
-                      <span className="text-[11px] text-[#636c76] truncate">
-                        {app.subtitle}
-                      </span>
-                    )}
-                  </div>
-                </div>
-                
-                <a 
-                  href={app.url}
-                  className="text-xs font-medium text-[#1f2328] bg-white border border-[#d0d7de] px-2 py-1 rounded shadow-sm hover:bg-[#f3f4f6] transition-colors whitespace-nowrap opacity-0 group-hover:opacity-100 focus:opacity-100"
+            {category.apps.map((app) => {
+              // Extract Apple ID for internal linking
+              const appleId = getAppleId(app.url);
+              // If we have an ID, link to our internal detail page (?appId=...), otherwise external link
+              const href = appleId ? `?appId=${appleId}` : app.url;
+              const target = appleId ? '_self' : '_blank';
+
+              return (
+                <div 
+                  key={app.id}
+                  className="px-4 py-3 hover:bg-[#f6f8fa] transition-colors flex items-center justify-between group"
                 >
-                  Download
-                </a>
-              </div>
-            ))}
+                  <div className="flex items-center space-x-3 overflow-hidden">
+                    {app.icon ? (
+                      <img 
+                        src={app.icon} 
+                        alt="" 
+                        className="w-5 h-5 rounded-sm flex-shrink-0"
+                      />
+                    ) : (
+                      <svg className="w-4 h-4 text-[#636c76] flex-shrink-0" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l3.25 3.25c.33.328.513.773.513 1.237v9.25A1.75 1.75 0 0113.586 16H3.75A1.75 1.75 0 012 14.25V1.75zm1.75-.25a.25.25 0 00-.25.25v12.5c0 .138.112.25.25.25h9.836a.25.25 0 00.25-.25V5.25H10.25a.75.75 0 01-.75-.75V1.5H3.75zM11 4.25h2.336L11 1.914v2.336z"></path>
+                      </svg>
+                    )}
+                    <div className="flex flex-col truncate">
+                      <a 
+                        href={href}
+                        target={target}
+                        className="text-[#0969da] font-medium hover:underline text-sm truncate"
+                      >
+                        {app.name}
+                      </a>
+                      {app.subtitle && (
+                        <span className="text-[11px] text-[#636c76] truncate">
+                          {app.subtitle}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                  
+                  <a 
+                    href={href}
+                    target={target}
+                    className="text-xs font-medium text-[#1f2328] bg-white border border-[#d0d7de] px-2 py-1 rounded shadow-sm hover:bg-[#f3f4f6] transition-colors whitespace-nowrap opacity-0 group-hover:opacity-100 focus:opacity-100"
+                  >
+                    Download
+                  </a>
+                </div>
+              );
+            })}
           </div>
         </div>
       );
     };
 
+    const DetailView = ({ appId }) => {
+        // Flatten all apps to find the one matching the ID
+        const allApps = CATEGORIES.flatMap(c => c.apps);
+        const app = allApps.find(a => getAppleId(a.url) === appId);
+
+        if (!app) {
+             return (
+                 <div className="flex flex-col items-center justify-center min-h-[50vh] space-y-4">
+                    <p className="text-lg text-gray-600">App not found</p>
+                    <a href="/" className="text-[#0969da] hover:underline font-medium">Back to Home</a>
+                 </div>
+             );
+        }
+
+        return (
+            <div className="flex flex-col items-center pt-8 px-4 text-center animate-in fade-in duration-500">
+                 <img src={app.icon} className="w-24 h-24 rounded-[22px] mb-6 shadow-md border border-gray-100" alt={app.name} />
+                 
+                 <h1 className="text-2xl font-bold text-[#1f2328] mb-2">
+                    {app.name}
+                 </h1>
+                 
+                 <h2 className="text-xl font-semibold text-[#0969da] mb-8">
+                    Download & updates
+                 </h2>
+                 
+                 <div className="w-full max-w-md bg-[#f6f8fa] border border-[#d0d7de] rounded-lg p-6 mb-8 text-left">
+                    <p className="text-[#1f2328] text-sm leading-relaxed mb-4 font-medium">
+                       คำแนะนำ (Instructions)
+                    </p>
+                    <ul className="text-[#636c76] text-sm space-y-2 list-disc list-inside">
+                        <li>
+                            หากเปิดใน <strong>Safari</strong> แบนเนอร์สำหรับดาวน์โหลดจะปรากฏที่ด้านบนสุดของหน้าจอ
+                        </li>
+                        <li>
+                            If opened in <strong>Safari</strong>, the download banner will appear at the very top of the screen.
+                        </li>
+                    </ul>
+                 </div>
+
+                 <a href="/" className="text-sm text-[#0969da] hover:underline flex items-center font-medium px-4 py-2 rounded-full hover:bg-blue-50 transition-colors">
+                    <svg className="w-4 h-4 mr-1.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                        <path d="M15 19l-7-7 7-7" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                    Back to Apps
+                 </a>
+            </div>
+        );
+    };
+
     const App = () => {
+      const [view, setView] = React.useState('list');
+      const [currentAppId, setCurrentAppId] = React.useState(null);
+
+      React.useEffect(() => {
+        const params = new URLSearchParams(window.location.search);
+        const appId = params.get('appId');
+        if (appId) {
+            setCurrentAppId(appId);
+            setView('detail');
+        } else {
+            setView('list');
+        }
+      }, []);
+
       return (
         <div className="min-h-screen bg-white py-8 px-4 flex flex-col items-center">
           <div className="w-full max-w-3xl">
-            {/* Header Section */}
+            {/* Header Section (Always Visible) */}
             <Header />
 
-            {/* Contact Alert Box */}
-            <div className="mb-6">
-              <ContactInfo igHandle={CONTACT_IG} />
-            </div>
+            {view === 'list' ? (
+                <>
+                    {/* Contact Alert Box */}
+                    <div className="mb-6">
+                      <ContactInfo igHandle={CONTACT_IG} />
+                    </div>
 
-            {/* App Lists */}
-            <div className="space-y-6">
-              {CATEGORIES.map((category) => (
-                <CategorySection key={category.id} category={category} />
-              ))}
-            </div>
+                    {/* App Lists */}
+                    <div className="space-y-6">
+                      {CATEGORIES.map((category) => (
+                        <CategorySection key={category.id} category={category} />
+                      ))}
+                    </div>
+                </>
+            ) : (
+                <DetailView appId={currentAppId} />
+            )}
 
             {/* Footer */}
             <footer className="mt-12 pt-8 border-t border-[#d0d7de] text-center text-[#636c76] text-sm">
