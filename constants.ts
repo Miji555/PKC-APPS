@@ -1,5 +1,5 @@
 
-import { Category } from './types';
+import { Category } from './types.ts';
 
 export const CATEGORIES: Category[] = [
   {
