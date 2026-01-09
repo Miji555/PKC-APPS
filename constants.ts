@@ -29,6 +29,12 @@ export const CATEGORIES: Category[] = [
         name: 'Roblox',
         subtitle: 'Adventure, Action, Creation',
         url: 'https://apps.apple.com/th/app/roblox/id1056524660'
+      },
+      {
+        id: 'genshin',
+        name: 'Genshin Impact',
+        subtitle: 'Open-world adventure RPG',
+        url: 'https://apps.apple.com/th/app/genshin-impact/id1517783697?l=th'
       }
     ]
   },
@@ -76,7 +82,7 @@ export const CATEGORIES: Category[] = [
         id: 'bilibili',
         name: 'Bilibili',
         subtitle: 'Anime, Videos & Community',
-        url: 'https://apps.apple.com/th/app/bilibili-anime-videos/id1517564185'
+        url: 'https://apps.apple.com/th/app/bilibili-%E0%B8%AD%E0%B8%99-%E0%B9%80%E0%B8%A1%E0%B8%B0-hd-%E0%B8%A7-%E0%B8%94-%E0%B9%82%E0%B8%AD/id1548857482?l=th'
       },
       {
         id: 'netflix',
@@ -88,13 +94,13 @@ export const CATEGORIES: Category[] = [
         id: 'iqiyi',
         name: 'iQIYI',
         subtitle: 'Drama, Anime, Show',
-        url: 'https://apps.apple.com/th/app/iqiyi-drama-anime-show/id1461433924'
+        url: 'https://apps.apple.com/th/app/iqiyi-%E0%B8%8B-%E0%B8%A3-%E0%B8%AA-%E0%B8%A7%E0%B8%B2%E0%B9%84%E0%B8%A3%E0%B8%95-%E0%B9%82%E0%B8%8A%E0%B8%A7/id1461999674?l=th'
       },
       {
         id: 'viu',
         name: 'Viu',
         subtitle: 'Korean Drama & Variety',
-        url: 'https://apps.apple.com/th/app/viu-korean-drama-variety/id1073539744'
+        url: 'https://apps.apple.com/th/app/viu/id1036095179?l=th'
       },
       {
         id: 'spotify',
