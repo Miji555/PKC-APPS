@@ -73,6 +73,12 @@ export const CATEGORIES: Category[] = [
         url: 'https://apps.apple.com/th/app/instagram/id389801252?l=th'
       },
       {
+        id: 'tiktok',
+        name: 'TikTok',
+        subtitle: 'Videos, Music & Live Streams',
+        url: 'https://apps.apple.com/th/app/tiktok/id1235601864?l=th'
+      },
+      {
         id: 'x',
         name: 'X',
         subtitle: 'The global digital town square',
@@ -108,6 +114,12 @@ export const CATEGORIES: Category[] = [
     id: 'entertainment',
     title: 'Entertainment',
     apps: [
+      {
+        id: 'youtube',
+        name: 'YouTube',
+        subtitle: 'Watch, Listen, Stream',
+        url: 'https://apps.apple.com/th/app/youtube/id544007664?l=th'
+      },
       {
         id: 'bilibili',
         name: 'Bilibili',
