@@ -23,6 +23,12 @@ export const CATEGORIES: Category[] = [
         name: 'Garena Free Fire: The Chaos',
         subtitle: 'เกมยิงปืนเอาตัวรอดอันดับ 1',
         url: 'https://apps.apple.com/th/app/garena-free-fire-the-chaos/id1300146617'
+      },
+      {
+        id: 'roblox',
+        name: 'Roblox',
+        subtitle: 'Adventure, Action, Creation',
+        url: 'https://apps.apple.com/th/app/roblox/id1056524660'
       }
     ]
   },
