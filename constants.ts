@@ -111,8 +111,8 @@ export const CATEGORIES: Category[] = [
       {
         id: 'notes-plus',
         name: 'Notes+',
-        subtitle: 'Notability & Creative Notes',
-        url: 'https://apps.apple.com/th/app/notability/id736189492'
+        subtitle: 'Simple & Creative Notes',
+        url: 'https://apps.apple.com/th/app/notes/id1609361989?l=th'
       }
     ]
   }
