@@ -15,9 +15,7 @@ export const CategorySection: React.FC<CategorySectionProps> = ({ category }) =>
     return match ? match[1] : null;
   };
 
-  const getFirstLetter = (name: string) => {
-    return name.charAt(0).toUpperCase();
-  };
+  const getFirstLetter = (name: string) => name.charAt(0).toUpperCase();
 
   const getBgColor = (name: string) => {
     const colors = [
@@ -32,6 +30,14 @@ export const CategorySection: React.FC<CategorySectionProps> = ({ category }) =>
     return colors[Math.abs(hash) % colors.length];
   };
 
+  const handleDownloadClick = (e: React.MouseEvent<HTMLAnchorElement>, appleId: string | null) => {
+    if (appleId) {
+      e.preventDefault();
+      window.history.pushState({}, '', `?appId=${appleId}`);
+      window.dispatchEvent(new PopStateEvent('popstate'));
+    }
+  };
+
   return (
     <div className="border border-[#d0d7de] rounded-xl overflow-hidden bg-white shadow-sm mb-6">
       <div className="bg-[#f6f8fa] px-4 py-3 border-b border-[#d0d7de] flex items-center justify-between">
@@ -39,9 +45,9 @@ export const CategorySection: React.FC<CategorySectionProps> = ({ category }) =>
           <svg className="w-4 h-4 text-[#636c76]" viewBox="0 0 16 16" fill="currentColor">
             <path d="M1.75 1A1.75 1.75 0 000 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0016 13.25v-8.5A1.75 1.75 0 0014.25 3H7.5a.25.25 0 01-.2-.1l-.9-1.2c-.33-.44-.85-.7-1.4-.7h-3.25z"></path>
           </svg>
-          <span className="font-semibold text-[#1f2328] text-sm">{category.title}</span>
+          <span className="font-semibold text-[#1f2328] text-sm uppercase tracking-wide">{category.title}</span>
         </div>
-        <span className="text-xs text-[#636c76]">{category.apps.length} items</span>
+        <span className="text-xs text-[#636c76] font-medium">{category.apps.length} items</span>
       </div>
       
       <div className="divide-y divide-[#d0d7de]">
@@ -63,6 +69,7 @@ export const CategorySection: React.FC<CategorySectionProps> = ({ category }) =>
                 <div className="flex flex-col truncate">
                   <a 
                     href={href}
+                    onClick={(e) => handleDownloadClick(e, appleId)}
                     className="text-[#0969da] font-semibold hover:underline text-base truncate"
                   >
                     {app.name}
@@ -77,6 +84,7 @@ export const CategorySection: React.FC<CategorySectionProps> = ({ category }) =>
               
               <a 
                 href={href}
+                onClick={(e) => handleDownloadClick(e, appleId)}
                 className="text-xs font-bold text-[#1f2328] bg-white border border-[#d0d7de] px-4 py-2 rounded-lg shadow-sm hover:bg-[#f3f4f6] transition-colors whitespace-nowrap"
               >
                 Download

@@ -43,6 +43,24 @@ export const CATEGORIES: Category[] = [
     title: 'Social',
     apps: [
       {
+        id: 'facebook',
+        name: 'Facebook',
+        subtitle: 'Connect with friends and the world',
+        url: 'https://apps.apple.com/th/app/facebook/id284882215'
+      },
+      {
+        id: 'instagram',
+        name: 'Instagram',
+        subtitle: 'Capture and share moments',
+        url: 'https://apps.apple.com/th/app/instagram/id389801252'
+      },
+      {
+        id: 'line',
+        name: 'LINE',
+        subtitle: 'Free Calls & Messages',
+        url: 'https://apps.apple.com/th/app/line/id443904275'
+      },
+      {
         id: 'x',
         name: 'X',
         subtitle: 'The global digital town square',
@@ -114,6 +132,12 @@ export const CATEGORIES: Category[] = [
     id: 'utility',
     title: 'Utility',
     apps: [
+      {
+        id: 'gemini',
+        name: 'Google Gemini',
+        subtitle: 'AI assistant to help you',
+        url: 'https://apps.apple.com/th/app/google-gemini/id6477484724'
+      },
       {
         id: 'meitu',
         name: 'Meitu',
