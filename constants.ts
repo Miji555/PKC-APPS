@@ -70,6 +70,12 @@ export const CATEGORIES: Category[] = [
         name: 'PUBG MOBILE',
         subtitle: 'Original Battle Royale',
         url: 'https://apps.apple.com/th/app/pubg-mobile/id1330123889?l=th'
+      },
+      {
+        id: 'golden-spatula',
+        name: 'Golden Spatula',
+        subtitle: 'Auto-chess battle game',
+        url: 'https://apps.apple.com/th/app/golden-spatula/id6661023265'
       }
     ]
   },
