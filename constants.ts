@@ -55,6 +55,24 @@ export const CATEGORIES: Category[] = [
     title: 'Social',
     apps: [
       {
+        id: 'facebook',
+        name: 'Facebook',
+        subtitle: 'Connect with friends & family',
+        url: 'https://apps.apple.com/th/app/facebook/id284882215?l=th'
+      },
+      {
+        id: 'messenger',
+        name: 'Messenger',
+        subtitle: 'Free text and video chat',
+        url: 'https://apps.apple.com/th/app/messenger/id454638411?l=th'
+      },
+      {
+        id: 'instagram',
+        name: 'Instagram',
+        subtitle: 'Photo & Video Sharing',
+        url: 'https://apps.apple.com/th/app/instagram/id389801252?l=th'
+      },
+      {
         id: 'x',
         name: 'X',
         subtitle: 'The global digital town square',
