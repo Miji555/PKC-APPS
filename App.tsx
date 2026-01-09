@@ -4,6 +4,7 @@ import { CATEGORIES } from './constants.ts';
 import { CategorySection } from './components/CategorySection.tsx';
 import { Header } from './components/Header.tsx';
 import { AppDetail } from './components/AppDetail.tsx';
+import { ContactInfo } from './components/ContactInfo.tsx';
 
 const App: React.FC = () => {
   const [currentAppId, setCurrentAppId] = useState<string | null>(null);
@@ -34,14 +35,20 @@ const App: React.FC = () => {
             <AppDetail appId={currentAppId} onBack={handleBack} />
           ) : (
             <div className="space-y-6">
-              {CATEGORIES.map((category) => (
-                <CategorySection key={category.id} category={category} />
-              ))}
+              <div className="mb-8">
+                <ContactInfo igHandle="pkc_apps" />
+              </div>
+              
+              <div className="space-y-8">
+                {CATEGORIES.map((category) => (
+                  <CategorySection key={category.id} category={category} />
+                ))}
+              </div>
             </div>
           )}
         </main>
 
-        <footer className="mt-12 pt-8 border-t border-[#d0d7de] text-center text-[#636c76] text-xs">
+        <footer className="mt-16 pt-8 border-t border-[#d0d7de] text-center text-[#636c76] text-[10px] uppercase tracking-widest font-bold">
           <p>© {new Date().getFullYear()} PKC APPS • ระบบดาวน์โหลดและอัปเดต</p>
         </footer>
       </div>

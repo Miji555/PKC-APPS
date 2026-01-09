@@ -7,17 +7,30 @@ interface ContactInfoProps {
 
 export const ContactInfo: React.FC<ContactInfoProps> = ({ igHandle }) => {
   return (
-    <div className="p-4 rounded-md border border-[#d0d7de] bg-[#f6f8fa] flex items-start space-x-3">
-      <div className="mt-1">
-        <svg className="w-5 h-5 text-[#0969da]" viewBox="0 0 16 16" fill="currentColor">
-          <path d="M0 8a8 8 0 1116 0A8 8 0 010 8zm8-6.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM6.5 7.75A.75.75 0 017.25 7h1.5a.75.75 0 010 1.5h-1.5a.75.75 0 01-.75-.75zM8.25 10a.75.75 0 00-1.5 0v1.25a.75.75 0 001.5 0V10zM8 4a1 1 0 110 2 1 1 0 010-2z"></path>
-        </svg>
+    <div className="p-5 rounded-2xl border border-blue-100 bg-blue-50/50 flex items-center space-x-4 shadow-sm">
+      <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-purple-500 via-red-500 to-yellow-500 p-[2px] flex-shrink-0">
+        <div className="w-full h-full rounded-full bg-white flex items-center justify-center">
+          <svg className="w-6 h-6 text-gray-800" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+        </div>
       </div>
-      <div>
-        <p className="text-[#1f2328] font-medium">
-          อยากได้แอพไหน ติดต่อ <a href={`https://instagram.com/${igHandle}`} target="_blank" rel="noopener noreferrer" className="text-[#0969da] hover:underline font-bold tracking-wide">IG: {igHandle}</a>
+      <div className="flex-1">
+        <p className="text-gray-600 text-sm font-medium">อยากได้แอปเพิ่มเติม หรือแจ้งปัญหา</p>
+        <p className="text-[#1f2328] font-bold">
+          ติดต่อ <a href={`https://instagram.com/${igHandle}`} target="_blank" rel="noopener noreferrer" className="text-[#0969da] hover:underline">IG: {igHandle}</a>
         </p>
       </div>
+      <a 
+        href={`https://instagram.com/${igHandle}`} 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="bg-white border border-[#d0d7de] px-4 py-2 rounded-lg text-xs font-bold hover:bg-gray-50 transition-colors shadow-sm"
+      >
+        ติดตาม
+      </a>
     </div>
   );
 };
