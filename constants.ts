@@ -52,6 +52,12 @@ export const CATEGORIES: Category[] = [
         name: 'Goose Goose Duck',
         subtitle: 'A Game of Social Deduction',
         url: 'https://apps.apple.com/th/app/goose-goose-duck/id1558248707?l=th'
+      },
+      {
+        id: 'among-us',
+        name: 'Among Us',
+        subtitle: 'Social deduction and teamwork',
+        url: 'https://apps.apple.com/th/app/among-us/id1351168404?l=th'
       }
     ]
   },
