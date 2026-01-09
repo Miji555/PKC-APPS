@@ -127,7 +127,8 @@ export const CATEGORIES: Category[] = [
       { id: 'meitu', name: 'Meitu', subtitle: 'Photo & Video Editor', url: 'https://apps.apple.com/th/app/meitu-photo-video-editor/id416048305' },
       { id: 'notes-plus', name: 'Notes+', subtitle: 'Simple & Creative Notes', url: 'https://apps.apple.com/th/app/notes/id1609361989?l=th' },
       { id: 'procreate', name: 'Procreate', subtitle: 'Sketch, paint, create.', url: 'https://apps.apple.com/th/app/procreate/id425073498?l=th' },
-      { id: '1-1-1-1', name: '1.1.1.1: Faster Internet', subtitle: 'Faster & Safer Internet', url: 'https://apps.apple.com/th/app/1-1-1-1-faster-internet/id1423538627?l=th' }
+      { id: '1-1-1-1', name: '1.1.1.1: Faster Internet', subtitle: 'Faster & Safer Internet', url: 'https://apps.apple.com/th/app/1-1-1-1-faster-internet/id1423538627?l=th' },
+      { id: 'capcut', name: 'CapCut', subtitle: 'โปรแกรมตัดต่อวิดีโอ', url: 'https://apps.apple.com/th/app/capcut-%E0%B9%82%E0%B8%9B%E0%B8%A3%E0%B9%81%E0%B8%81%E0%B8%A3%E0%B8%A1%E0%B8%95-%E0%B8%94%E0%B8%95-%E0%B8%AD%E0%B8%A7-%E0%B8%94-%E0%B9%82%E0%B8%AD/id1500855883?l=th' }
     ]
   }
 ];
