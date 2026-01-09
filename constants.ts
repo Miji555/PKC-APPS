@@ -59,6 +59,12 @@ export const CATEGORIES: Category[] = [
         name: 'Threads',
         subtitle: 'An Instagram app',
         url: 'https://apps.apple.com/th/app/threads-an-instagram-app/id6446901002'
+      },
+      {
+        id: 'messages',
+        name: 'ข้อความ',
+        subtitle: 'แอปส่งข้อความจาก Apple',
+        url: 'https://apps.apple.com/th/app/%E0%B8%82-%E0%B8%AD%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1/id1146560473?l=th'
       }
     ]
   },
