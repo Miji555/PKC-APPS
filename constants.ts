@@ -88,6 +88,12 @@ export const CATEGORIES: Category[] = [
         name: 'Subway Surfers',
         subtitle: 'Endless runner game',
         url: 'https://apps.apple.com/th/app/subway-surfers/id512939461?l=th'
+      },
+      {
+        id: 'efootball',
+        name: 'eFootball™',
+        subtitle: 'สุดยอดเกมฟุตบอลระดับโลก',
+        url: 'https://apps.apple.com/th/app/efootball/id1117270703?l=th'
       }
     ]
   },
