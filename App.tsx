@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { CATEGORIES } from './constants';
 import { CategorySection } from './components/CategorySection';
 import { Header } from './components/Header';
@@ -16,17 +16,23 @@ const App: React.FC = () => {
     setAppId(id);
   }, []);
 
-  const displayedCategories = selectedCategory === 'all' 
-    ? CATEGORIES 
-    : CATEGORIES.filter(c => c.id === selectedCategory);
+  const displayedContent = useMemo(() => {
+    if (selectedCategory === 'all') {
+      // หน้าแรก: แสดงทุกหมวดหมู่ (Games, Social, etc.) เรียงกันลงมา
+      return CATEGORIES;
+    } else {
+      // หน้าหมวดหมู่ย่อย: กรองเฉพาะหมวดที่เลือก
+      return CATEGORIES.filter(c => c.id === selectedCategory);
+    }
+  }, [selectedCategory]);
 
   return (
-    <div className="min-h-screen py-6 px-4 flex flex-col items-center relative overflow-hidden">
+    <div className="min-h-screen py-6 px-4 flex flex-col items-center relative overflow-hidden bg-[#f2f2f7]">
       {/* Subtle Aurora Background */}
       <div className="fixed top-[-20%] left-[-10%] w-[800px] h-[800px] bg-blue-400/10 rounded-full blur-[120px] pointer-events-none mix-blend-multiply animate-pulse"></div>
       <div className="fixed bottom-[-20%] right-[-10%] w-[800px] h-[800px] bg-purple-400/10 rounded-full blur-[120px] pointer-events-none mix-blend-multiply" style={{animationDelay: '3s'}}></div>
 
-      <div className="w-full max-w-3xl z-10">
+      <div className="w-full max-w-5xl z-10">
         <Header />
 
         {!appId ? (
@@ -37,16 +43,22 @@ const App: React.FC = () => {
               onSelectCategory={setSelectedCategory}
             />
             
-            <div className="space-y-6 animate-in">
+            <div className="space-y-8 animate-in pb-20">
               {selectedCategory === 'all' && <InstructionBanner />}
               
-              {displayedCategories.map((category) => (
-                <CategorySection key={category.id} category={category} />
+              {displayedContent.map((section) => (
+                <CategorySection 
+                  key={section.id} 
+                  title={section.title}
+                  apps={section.apps}
+                  isFeatured={selectedCategory === 'all'}
+                />
               ))}
               
-              {displayedCategories.length === 0 && (
-                <div className="text-center py-16 glass-card rounded-3xl edge-shine">
-                  <p className="text-gray-400 font-medium">ไม่พบรายการในหมวดหมู่นี้</p>
+              {displayedContent.length === 0 && (
+                <div className="text-center py-24 glass-card rounded-3xl edge-shine mx-auto max-w-2xl">
+                  <div className="mb-4 text-6xl">🤔</div>
+                  <p className="text-slate-500 font-medium text-lg">ไม่พบรายการในหมวดหมู่นี้</p>
                 </div>
               )}
             </div>
@@ -55,7 +67,7 @@ const App: React.FC = () => {
           <DetailView appId={appId} />
         )}
 
-        <footer className="mt-16 pt-8 border-t border-gray-200 text-center text-gray-400 text-xs font-medium">
+        <footer className="mt-12 pt-8 border-t border-slate-200/60 text-center text-slate-400 text-xs font-medium pb-8">
           <p>© {new Date().getFullYear()} PKC APPS • Liquid Glass OS v26 White</p>
         </footer>
       </div>

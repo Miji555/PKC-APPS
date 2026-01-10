@@ -1,12 +1,16 @@
-import React from 'react';
-import { Category } from '../types';
+import React, { useState } from 'react';
+import { AppItem } from '../types';
 
 interface CategorySectionProps {
-  category: Category;
+  title: string;
+  apps: AppItem[];
+  isFeatured?: boolean;
 }
 
-export const CategorySection: React.FC<CategorySectionProps> = ({ category }) => {
-  if (category.apps.length === 0) return null;
+export const CategorySection: React.FC<CategorySectionProps> = ({ title, apps, isFeatured = false }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  if (apps.length === 0) return null;
 
   const getAppleId = (url: string) => {
     if (!url) return null;
@@ -18,14 +22,15 @@ export const CategorySection: React.FC<CategorySectionProps> = ({ category }) =>
     return name.charAt(0).toUpperCase();
   };
 
-  // Soft pastel gradients for icons
   const getIconGradient = (name: string) => {
     const gradients = [
       'bg-gradient-to-br from-blue-400 to-indigo-500',
       'bg-gradient-to-br from-sky-400 to-blue-500',
       'bg-gradient-to-br from-violet-400 to-purple-500',
       'bg-gradient-to-br from-fuchsia-400 to-pink-500',
-      'bg-gradient-to-br from-cyan-400 to-teal-500'
+      'bg-gradient-to-br from-cyan-400 to-teal-500',
+      'bg-gradient-to-br from-rose-400 to-orange-500',
+      'bg-gradient-to-br from-emerald-400 to-teal-500'
     ];
     let hash = 0;
     for (let i = 0; i < name.length; i++) {
@@ -34,55 +39,76 @@ export const CategorySection: React.FC<CategorySectionProps> = ({ category }) =>
     return gradients[Math.abs(hash) % gradients.length];
   };
 
+  // Logic: ถ้าไม่ได้กดดูทั้งหมด ให้โชว์แค่ 6 แอพ
+  const displayApps = isExpanded ? apps : apps.slice(0, 6);
+  const hasMore = apps.length > 6;
+
   return (
-    <div className="glass-card rounded-[2rem] overflow-hidden mb-8 transition-transform duration-300 edge-shine">
-      <div className="px-6 py-4 border-b border-gray-100/50 flex items-center justify-between bg-white/40 backdrop-blur-xl">
-        <h2 className="font-bold text-slate-800 text-xl tracking-wide">{category.title}</h2>
-        <span className="text-xs font-bold text-slate-500 bg-white/50 px-3 py-1 rounded-full border border-white/60">
-          {category.apps.length}
-        </span>
+    <div className="mb-10 animate-in">
+      <div className="px-2 mb-4 flex items-center justify-between">
+        <h2 className="text-2xl font-bold text-slate-800 tracking-tight flex items-center gap-2">
+          {title}
+          {!isExpanded && hasMore && (
+             <span className="text-xs font-bold text-slate-400 bg-slate-200/50 px-2 py-0.5 rounded-full">
+               Top 6
+             </span>
+          )}
+        </h2>
+        {hasMore && (
+          <button 
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="text-blue-600 text-sm font-semibold hover:bg-blue-50 px-3 py-1 rounded-full transition-colors"
+          >
+            {isExpanded ? 'ย่อลง' : 'ดูทั้งหมด'}
+          </button>
+        )}
       </div>
       
-      <div className="divide-y divide-gray-100/50">
-        {category.apps.map((app) => {
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {displayApps.map((app, index) => {
           const appleId = getAppleId(app.url);
           const href = appleId ? `?appId=${appleId}` : app.url;
 
           return (
             <div 
               key={app.id}
-              className="px-5 py-5 hover:bg-white/40 transition-all duration-300 flex items-center justify-between group cursor-pointer"
+              className="glass-card rounded-[1.5rem] p-4 flex items-center gap-4 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer group shadow-sm hover:shadow-lg ring-1 ring-white/50"
               onClick={() => window.location.href = href}
+              style={{ animationDelay: `${index * 50}ms` }}
             >
-              <div className="flex items-center space-x-5 overflow-hidden flex-1">
-                <div className={`w-16 h-16 rounded-2xl flex-shrink-0 shadow-[0_8px_20px_-6px_rgba(0,0,0,0.15)] flex items-center justify-center ${getIconGradient(app.name)} ring-1 ring-black/5`}>
-                  <span className="text-white text-2xl font-bold drop-shadow-md select-none">
-                    {getFirstLetter(app.name)}
-                  </span>
-                </div>
-                <div className="flex flex-col truncate pr-4">
-                  <span className="text-slate-900 font-bold text-lg truncate group-hover:text-blue-600 transition-colors">
-                    {app.name}
-                  </span>
-                  {app.subtitle && (
-                    <span className="text-sm text-slate-500 truncate mt-1 font-normal">
-                      {app.subtitle}
-                    </span>
-                  )}
-                </div>
+              <div className={`w-20 h-20 rounded-[1.2rem] flex-shrink-0 shadow-md flex items-center justify-center ${getIconGradient(app.name)} ring-1 ring-black/5 group-hover:shadow-xl transition-all duration-300`}>
+                <span className="text-white text-3xl font-bold drop-shadow-sm select-none">
+                  {getFirstLetter(app.name)}
+                </span>
               </div>
               
-              <div className="pl-2">
-                <button 
-                  className="text-xs font-bold text-blue-600 bg-blue-50 px-6 py-2 rounded-full hover:bg-blue-100 transition-all duration-300 whitespace-nowrap active:scale-95 uppercase tracking-wide"
-                >
-                  GET
-                </button>
+              <div className="flex-1 min-w-0 flex flex-col justify-center h-full py-1">
+                <h3 className="text-slate-900 font-bold text-[17px] leading-snug truncate pr-1 group-hover:text-blue-600 transition-colors">
+                  {app.name}
+                </h3>
+                <p className="text-slate-500 text-[13px] truncate mt-0.5 font-medium">
+                  {app.subtitle || 'Application'}
+                </p>
+                <div className="mt-2.5">
+                  <span className="text-[11px] font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full uppercase tracking-wider group-hover:bg-blue-100 transition-colors">
+                    Get
+                  </span>
+                </div>
               </div>
             </div>
           );
         })}
       </div>
+
+      {!isExpanded && hasMore && (
+        <button 
+          onClick={() => setIsExpanded(true)}
+          className="w-full mt-4 py-3 rounded-2xl border-2 border-dashed border-slate-200 text-slate-400 font-semibold hover:border-blue-300 hover:text-blue-500 hover:bg-blue-50/50 transition-all duration-300 flex items-center justify-center gap-2 group"
+        >
+          <span>ดูแอพที่เหลืออีก {apps.length - 6} รายการ</span>
+          <svg className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+        </button>
+      )}
     </div>
   );
 };
