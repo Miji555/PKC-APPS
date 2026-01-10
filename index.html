@@ -11,28 +11,25 @@
   
   <style>
     :root {
-      --glass-border: rgba(255, 255, 255, 0.4);
-      --glass-bg: rgba(255, 255, 255, 0.65);
-      --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+      /* Crystal Clear Glass Variables */
+      --glass-border: rgba(255, 255, 255, 0.5);
+      --glass-bg: rgba(255, 255, 255, 0.1);
+      --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
     }
 
     body {
-      font-family: 'Inter', 'Noto Sans Thai', sans-serif;
+      font-family: 'SF Pro Display', 'Inter', 'Noto Sans Thai', sans-serif;
       margin: 0;
       padding: 0;
       -webkit-tap-highlight-color: transparent;
-      background-color: #eef2ff;
-      /* Liquid Mesh Gradient Background */
-      background-image: 
-        radial-gradient(at 0% 0%, hsla(253,16%,7%,0) 0, transparent 50%), 
-        radial-gradient(at 50% 0%, hsla(225,39%,30%,0) 0, transparent 50%), 
-        radial-gradient(at 100% 0%, hsla(339,49%,30%,0) 0, transparent 50%);
+      background-color: #f3f4f6;
       background-attachment: fixed;
       position: relative;
       overflow-x: hidden;
+      color: #1e293b;
     }
 
-    /* Moving background blobs */
+    /* Enhanced Vivid Blobs for Clear Glass Effect */
     .blob-bg {
       position: fixed;
       top: 0;
@@ -41,20 +38,21 @@
       height: 100vh;
       z-index: -1;
       overflow: hidden;
-      background: #f0f4f8;
+      background: radial-gradient(circle at center, #f8fafc, #eff6ff);
     }
     .blob {
       position: absolute;
       filter: blur(80px);
-      opacity: 0.6;
+      opacity: 0.8;
       animation: float 20s infinite ease-in-out alternate;
     }
     .blob-1 {
       top: -10%;
       left: -10%;
-      width: 50vw;
-      height: 50vw;
-      background: #a7f3d0; /* Green tint */
+      width: 60vw;
+      height: 60vw;
+      background: #60a5fa; /* Blue */
+      mix-blend-mode: multiply;
       animation-delay: 0s;
     }
     .blob-2 {
@@ -62,15 +60,17 @@
       right: -10%;
       width: 60vw;
       height: 60vw;
-      background: #bfdbfe; /* Blue tint */
+      background: #c084fc; /* Purple */
+      mix-blend-mode: multiply;
       animation-delay: -5s;
     }
     .blob-3 {
-      top: 40%;
+      top: 30%;
       left: 40%;
-      width: 40vw;
-      height: 40vw;
-      background: #ddd6fe; /* Purple tint */
+      width: 50vw;
+      height: 50vw;
+      background: #f472b6; /* Pink */
+      mix-blend-mode: multiply;
       animation-delay: -10s;
     }
 
@@ -79,24 +79,25 @@
       100% { transform: translate(30px, 50px) scale(1.1); }
     }
 
+    /* Crystal Clear Glass Classes - No Cloudiness */
     .glass-panel {
-      background: var(--glass-bg);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid var(--glass-border);
-      box-shadow: var(--glass-shadow);
+      background: rgba(255, 255, 255, 0.25); /* High transparency */
+      backdrop-filter: blur(12px); /* Moderate blur */
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.6); /* Crisp border */
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     }
     
     .glass-card {
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.6);
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+      background: rgba(255, 255, 255, 0.15); /* Ultra clear */
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.5); /* Crisp border */
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.03);
     }
 
     .animate-in {
-      animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation: slideUpFade 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
       opacity: 0;
       transform: translateY(20px);
     }
@@ -121,8 +122,8 @@
     "react-dom": "https://esm.sh/react-dom@18.2.0",
     "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
     "react/jsx-runtime": "https://esm.sh/react@18.2.0/jsx-runtime",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "react/": "https://esm.sh/react@^19.2.3/"
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
   }
 }
 </script>
