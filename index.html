@@ -7,24 +7,104 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
   <style>
+    :root {
+      --glass-border: rgba(255, 255, 255, 0.4);
+      --glass-bg: rgba(255, 255, 255, 0.65);
+      --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+    }
+
     body {
       font-family: 'Inter', 'Noto Sans Thai', sans-serif;
-      background-color: #f0f9ff; /* ฟ้าอ่อน */
-      color: #1e3a8a; /* น้ำเงินเข้ม */
       margin: 0;
       padding: 0;
       -webkit-tap-highlight-color: transparent;
+      background-color: #eef2ff;
+      /* Liquid Mesh Gradient Background */
+      background-image: 
+        radial-gradient(at 0% 0%, hsla(253,16%,7%,0) 0, transparent 50%), 
+        radial-gradient(at 50% 0%, hsla(225,39%,30%,0) 0, transparent 50%), 
+        radial-gradient(at 100% 0%, hsla(339,49%,30%,0) 0, transparent 50%);
+      background-attachment: fixed;
+      position: relative;
+      overflow-x: hidden;
     }
+
+    /* Moving background blobs */
+    .blob-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      overflow: hidden;
+      background: #f0f4f8;
+    }
+    .blob {
+      position: absolute;
+      filter: blur(80px);
+      opacity: 0.6;
+      animation: float 20s infinite ease-in-out alternate;
+    }
+    .blob-1 {
+      top: -10%;
+      left: -10%;
+      width: 50vw;
+      height: 50vw;
+      background: #a7f3d0; /* Green tint */
+      animation-delay: 0s;
+    }
+    .blob-2 {
+      bottom: -10%;
+      right: -10%;
+      width: 60vw;
+      height: 60vw;
+      background: #bfdbfe; /* Blue tint */
+      animation-delay: -5s;
+    }
+    .blob-3 {
+      top: 40%;
+      left: 40%;
+      width: 40vw;
+      height: 40vw;
+      background: #ddd6fe; /* Purple tint */
+      animation-delay: -10s;
+    }
+
+    @keyframes float {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(30px, 50px) scale(1.1); }
+    }
+
+    .glass-panel {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-shadow);
+    }
+    
+    .glass-card {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+    }
+
     .animate-in {
-      animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      opacity: 0;
+      transform: translateY(20px);
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
+    
+    @keyframes slideUpFade {
       to { opacity: 1; transform: translateY(0); }
     }
+
     .no-scrollbar::-webkit-scrollbar {
       display: none;
     }
@@ -41,13 +121,18 @@
     "react-dom": "https://esm.sh/react-dom@18.2.0",
     "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
     "react/jsx-runtime": "https://esm.sh/react@18.2.0/jsx-runtime",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/"
   }
 }
 </script>
 </head>
 <body>
+  <div class="blob-bg">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
   <div id="root"></div>
   <script type="module" src="index.tsx"></script>
 </body>

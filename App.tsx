@@ -7,7 +7,6 @@ import { InstructionBanner } from './components/InstructionBanner';
 import { MenuBar } from './components/MenuBar';
 
 const App: React.FC = () => {
-  // ใช้ URL Search Params เพื่อตรวจสอบว่าผู้ใช้เลือกแอปใดหรือไม่
   const [appId, setAppId] = useState<string | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
 
@@ -22,28 +21,31 @@ const App: React.FC = () => {
     : CATEGORIES.filter(c => c.id === selectedCategory);
 
   return (
-    <div className="min-h-screen bg-[#f0f9ff] py-6 px-4 flex flex-col items-center">
-      <div className="w-full max-w-3xl">
-        <Header />
-
+    <div className="min-h-screen py-8 px-4 sm:px-6 flex flex-col items-center relative z-10">
+      <div className="w-full max-w-[680px]"> {/* iOS style width constraint */}
+        
         {!appId ? (
           <>
+            <Header />
+            
             <MenuBar 
               categories={CATEGORIES} 
               selectedCategory={selectedCategory}
               onSelectCategory={setSelectedCategory}
             />
             
-            <div className="space-y-6 animate-in">
+            <div className="space-y-8 animate-in" style={{ animationDelay: '0.1s' }}>
               {selectedCategory === 'all' && <InstructionBanner />}
               
-              {displayedCategories.map((category) => (
-                <CategorySection key={category.id} category={category} />
+              {displayedCategories.map((category, index) => (
+                <div key={category.id} style={{ animationDelay: `${0.1 + (index * 0.1)}s` }} className="animate-in">
+                  <CategorySection category={category} />
+                </div>
               ))}
               
               {displayedCategories.length === 0 && (
-                <div className="text-center py-12">
-                  <p className="text-blue-400 font-medium">ไม่พบรายการในหมวดหมู่นี้</p>
+                <div className="glass-card rounded-3xl p-12 text-center">
+                  <p className="text-slate-400 font-medium">ไม่พบรายการในหมวดหมู่นี้</p>
                 </div>
               )}
             </div>
@@ -52,8 +54,10 @@ const App: React.FC = () => {
           <DetailView appId={appId} />
         )}
 
-        <footer className="mt-16 pt-8 border-t border-blue-100 text-center text-blue-400 text-xs font-medium">
-          <p>© {new Date().getFullYear()} PKC APPS • ระบบดาวน์โหลดและอัปเดต</p>
+        <footer className="mt-20 pb-8 text-center">
+          <p className="text-slate-400/80 text-[10px] font-semibold tracking-wider uppercase">
+            © {new Date().getFullYear()} PKC APPS • ระบบดาวน์โหลดและอัปเดต
+          </p>
         </footer>
       </div>
     </div>
