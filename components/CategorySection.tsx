@@ -3,9 +3,11 @@ import { Category } from '../types';
 
 interface CategorySectionProps {
   category: Category;
+  isCompact?: boolean;
+  onViewMore?: () => void;
 }
 
-export const CategorySection: React.FC<CategorySectionProps> = ({ category }) => {
+export const CategorySection: React.FC<CategorySectionProps> = ({ category, isCompact = false, onViewMore }) => {
   if (category.apps.length === 0) return null;
 
   const getAppleId = (url: string) => {
@@ -28,23 +30,31 @@ export const CategorySection: React.FC<CategorySectionProps> = ({ category }) =>
     return gradients[Math.abs(hash) % gradients.length];
   };
 
+  const limit = 6;
+  const displayApps = isCompact ? category.apps.slice(0, limit) : category.apps;
+  const remainingCount = category.apps.length - limit;
+  const showMoreButton = isCompact && remainingCount > 0;
+
   return (
     <div className="mb-8">
       <div className="flex items-baseline justify-between px-2 mb-4">
         <h2 className="text-xl font-bold text-slate-800">{category.title}</h2>
-        <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">{category.apps.length} APPS</span>
+        <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+          {isCompact ? 'TOP 6' : `${category.apps.length} APPS`}
+        </span>
       </div>
       
       <div className="glass-card rounded-[32px] overflow-hidden p-2">
-        {category.apps.map((app, index) => {
+        {displayApps.map((app, index) => {
           const appleId = getAppleId(app.url);
           const href = appleId ? `?appId=${appleId}` : app.url;
-          const isLast = index === category.apps.length - 1;
+          const isLast = index === displayApps.length - 1;
+          const isActuallyLast = isLast && !showMoreButton;
 
           return (
             <div 
               key={app.id}
-              className={`relative p-3 transition-all duration-300 hover:bg-white/50 rounded-[24px] group cursor-pointer flex items-center gap-4 ${!isLast ? 'mb-1' : ''}`}
+              className={`relative p-3 transition-all duration-300 hover:bg-white/50 rounded-[24px] group cursor-pointer flex items-center gap-4 ${!isActuallyLast ? 'mb-1' : ''}`}
               onClick={() => window.location.href = href}
             >
               {/* App Icon */}
@@ -71,6 +81,18 @@ export const CategorySection: React.FC<CategorySectionProps> = ({ category }) =>
             </div>
           );
         })}
+
+        {showMoreButton && (
+          <button 
+            onClick={onViewMore}
+            className="w-full mt-1 py-3 text-center text-slate-500 hover:text-blue-600 hover:bg-white/40 rounded-[24px] transition-all duration-300 font-semibold text-sm flex items-center justify-center gap-2 group"
+          >
+            ดูเพิ่มเติมอีก {remainingCount} แอป
+            <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        )}
       </div>
     </div>
   );

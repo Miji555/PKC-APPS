@@ -39,7 +39,11 @@ const App: React.FC = () => {
               
               {displayedCategories.map((category, index) => (
                 <div key={category.id} style={{ animationDelay: `${0.1 + (index * 0.1)}s` }} className="animate-in">
-                  <CategorySection category={category} />
+                  <CategorySection 
+                    category={category} 
+                    isCompact={selectedCategory === 'all'}
+                    onViewMore={() => setSelectedCategory(category.id)}
+                  />
                 </div>
               ))}
               
