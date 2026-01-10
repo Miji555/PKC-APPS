@@ -2,26 +2,26 @@ import React from 'react';
 
 export const InstructionBanner: React.FC = () => {
   return (
-    <div className="w-full bg-rose-50 border-2 border-rose-200 rounded-2xl p-6 mb-8 shadow-sm animate-in">
+    <div className="w-full bg-white border border-blue-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow">
       <div className="flex items-start gap-4">
-        <div className="bg-rose-500 p-2.5 rounded-xl flex-shrink-0 mt-0.5 shadow-md">
-          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+        <div className="bg-blue-100 p-2 rounded-xl flex-shrink-0 text-blue-600">
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
         </div>
         <div className="flex-1">
-          <h3 className="text-rose-900 font-bold text-xl mb-4">ประกาศสำคัญ!</h3>
-          <div className="flex flex-col gap-4">
-            <div className="flex items-start gap-2">
-              <span className="text-rose-500 font-bold mt-1">•</span>
-              <p className="text-rose-800 text-base leading-relaxed">
-                ต้องทำการ <span className="bg-rose-200 px-1.5 py-0.5 rounded font-black text-rose-700 underline decoration-2 underline-offset-2">Sign in Apple ID</span> ในเครื่องของคุณให้เรียบร้อยก่อนเท่านั้น จึงจะสามารถดาวน์โหลดแอปพลิเคชันได้
+          <h3 className="text-blue-900 font-bold text-lg mb-3">คำแนะนำการใช้งาน</h3>
+          <div className="space-y-3">
+            <div className="flex gap-2">
+              <span className="text-blue-400 font-bold">•</span>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                ต้องทำการ <span className="font-bold text-blue-600">Sign in Apple ID</span> ให้เรียบร้อยก่อนจึงจะสามารถดาวน์โหลดแอปได้
               </p>
             </div>
-            <div className="flex items-start gap-2">
-              <span className="text-rose-500 font-bold mt-1">•</span>
-              <p className="text-rose-800 text-base leading-relaxed">
-                <span className="font-black text-rose-700 bg-rose-200/50 px-1 rounded">ข้อควรระวัง:</span> <span className="text-rose-600 font-black underline decoration-rose-500 decoration-2 underline-offset-4 text-lg">หากดาวน์โหลดแอปพลิเคชันแล้ว จะไม่สามารถลบแอปพลิเคชันนั้นออกจากเครื่องได้</span>
+            <div className="flex gap-2">
+              <span className="text-blue-400 font-bold">•</span>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                หากดาวน์โหลดแล้ว <span className="text-red-500 font-bold">จะไม่สามารถลบแอปออกจากเครื่องได้</span> (โปรดตรวจสอบก่อนติดตั้ง)
               </p>
             </div>
           </div>
