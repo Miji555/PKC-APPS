@@ -22,22 +22,25 @@ export const MenuBar: React.FC<MenuBarProps> = ({ categories, selectedCategory, 
   useEffect(() => {
     // คำนวณตำแหน่งของ Pill background
     if (containerRef.current) {
-      const activeBtn = containerRef.current.children[activeIndex] as HTMLElement;
+      // Note: children[0] คือ div ของ pill background, ดังนั้นต้อง +1 เพื่อเข้าถึง button
+      const activeBtn = containerRef.current.children[activeIndex + 1] as HTMLElement;
+      
       if (activeBtn) {
-        // เพิ่ม padding เล็กน้อยเพื่อให้ pill ดูลอยตัว
         setPillStyle({
           left: activeBtn.offsetLeft,
           width: activeBtn.offsetWidth,
           opacity: 1
         });
+        
+        // เลื่อน Scrollbar แนวนอนให้ปุ่มที่เลือกอยู่ตรงกลาง (สำหรับมือถือ)
+        activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
       }
     }
   }, [activeIndex]);
 
   return (
-    <div className="sticky top-4 z-40 mb-10 flex justify-center px-4">
-      {/* ใช้ liquid-glass class แทน glass-panel */}
-      <div className="liquid-glass rounded-full p-1.5 backdrop-blur-2xl border border-white/40 max-w-full overflow-hidden transition-all duration-500">
+    <div className="sticky top-4 z-40 mb-10 flex justify-center px-4 pointer-events-none">
+      <div className="pointer-events-auto liquid-glass rounded-full p-1.5 backdrop-blur-2xl border border-white/40 max-w-full overflow-hidden transition-all duration-500 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]">
         <div 
           className="flex relative items-center overflow-x-auto no-scrollbar"
           ref={containerRef}
