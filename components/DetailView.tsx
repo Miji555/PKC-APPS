@@ -31,7 +31,7 @@ export const DetailView: React.FC<DetailViewProps> = ({ appId }) => {
         <span className="text-white text-5xl font-bold">{app.name.charAt(0).toUpperCase()}</span>
       </div>
       <h1 className="text-3xl font-bold text-[#1f2328] mb-1">{app.name}</h1>
-      <h2 className="text-xl font-semibold text-[#0969da] mb-12">Download & update</h2>
+      <h2 className="text-xl font-semibold text-[#0969da] mb-12">Download และ Updates</h2>
 
       <div className="w-full max-w-md bg-yellow-50 border border-yellow-200 rounded-xl p-6 mb-12 text-left shadow-sm">
         <div className="flex gap-4">

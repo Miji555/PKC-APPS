@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { Category } from '../types.ts';
+import { Category } from '../types';
 
 interface CategorySectionProps {
   category: Category;

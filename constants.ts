@@ -1,4 +1,4 @@
-import { Category } from './types.ts';
+import { Category } from './types';
 
 export const CATEGORIES: Category[] = [
   {
@@ -129,7 +129,7 @@ export const CATEGORIES: Category[] = [
     id: 'utility',
     title: 'Utility',
     apps: [
-      { id: 'shopee', name: 'Shopee TH: ซื้อของออนไลน์', subtitle: 'ช้อปสนุก ส่งฟรี* ทั่วไทย', url: 'https://apps.apple.com/th/app/shopee-th-%E0%B8%8B-%E0%B8%AD%E0%B8%82%E0%B8%AD%E0%B8%87%E0%B8%AD%E0%B8%AD%E0%B8%99%E0%B9%84%E0%B8%A5%E0%B8%99-%E0%B8%AA-%E0%B8%87%E0%B9%84%E0%B8%A7/id959841453?l=th' },
+      { id: 'shopee', name: 'Shopee TH: ซื้อของออนไลน์', subtitle: 'ช้อปสนุก ส่งฟรี* ทั่วไทย', url: 'https://apps.apple.com/th/app/shopee-th-%E0%B8%8B-%E0%B8%AD%E0%B8%82%E0%B8%AD%E0%B8%AD%E0%B8%99%E0%B9%84%E0%B8%A5%E0%B8%99-%E0%B8%AA-%E0%B8%87%E0%B9%84%E0%B8%A7/id959841453?l=th' },
       { id: 'meitu', name: 'Meitu', subtitle: 'Photo & Video Editor', url: 'https://apps.apple.com/th/app/meitu-photo-video-editor/id416048305' },
       { id: 'notes-plus', name: 'Notes+', subtitle: 'Simple & Creative Notes', url: 'https://apps.apple.com/th/app/notes/id1609361989?l=th' },
       { id: 'procreate', name: 'Procreate', subtitle: 'Sketch, paint, create.', url: 'https://apps.apple.com/th/app/procreate/id425073498?l=th' },
