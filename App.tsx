@@ -7,7 +7,6 @@ import { InstructionBanner } from './components/InstructionBanner';
 import { MenuBar } from './components/MenuBar';
 
 const App: React.FC = () => {
-  // ใช้ URL Search Params เพื่อตรวจสอบว่าผู้ใช้เลือกแอปใดหรือไม่
   const [appId, setAppId] = useState<string | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
 
@@ -22,8 +21,12 @@ const App: React.FC = () => {
     : CATEGORIES.filter(c => c.id === selectedCategory);
 
   return (
-    <div className="min-h-screen bg-[#f0f9ff] py-6 px-4 flex flex-col items-center">
-      <div className="w-full max-w-3xl">
+    <div className="min-h-screen py-6 px-4 flex flex-col items-center relative overflow-hidden">
+      {/* Abstract Background Orbs */}
+      <div className="fixed top-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[100px] pointer-events-none mix-blend-screen animate-pulse"></div>
+      <div className="fixed bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-purple-600/20 rounded-full blur-[120px] pointer-events-none mix-blend-screen animate-pulse" style={{animationDelay: '2s'}}></div>
+
+      <div className="w-full max-w-3xl z-10">
         <Header />
 
         {!appId ? (
@@ -42,8 +45,8 @@ const App: React.FC = () => {
               ))}
               
               {displayedCategories.length === 0 && (
-                <div className="text-center py-12">
-                  <p className="text-blue-400 font-medium">ไม่พบรายการในหมวดหมู่นี้</p>
+                <div className="text-center py-12 glass rounded-3xl">
+                  <p className="text-white/50 font-medium">ไม่พบรายการในหมวดหมู่นี้</p>
                 </div>
               )}
             </div>
@@ -52,8 +55,8 @@ const App: React.FC = () => {
           <DetailView appId={appId} />
         )}
 
-        <footer className="mt-16 pt-8 border-t border-blue-100 text-center text-blue-400 text-xs font-medium">
-          <p>© {new Date().getFullYear()} PKC APPS • ระบบดาวน์โหลดและอัปเดต</p>
+        <footer className="mt-16 pt-8 border-t border-white/10 text-center text-white/30 text-xs font-medium">
+          <p>© {new Date().getFullYear()} PKC APPS • Liquid Glass OS v26</p>
         </footer>
       </div>
     </div>

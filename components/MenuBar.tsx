@@ -9,31 +9,33 @@ interface MenuBarProps {
 
 export const MenuBar: React.FC<MenuBarProps> = ({ categories, selectedCategory, onSelectCategory }) => {
   return (
-    <div className="sticky top-0 z-40 bg-[#f0f9ff]/90 backdrop-blur-md py-3 -mx-4 px-4 border-b border-blue-100 mb-6 shadow-sm">
-      <div className="flex space-x-2 overflow-x-auto no-scrollbar pb-1 max-w-3xl mx-auto">
-        <button
-          onClick={() => onSelectCategory('all')}
-          className={`flex-shrink-0 px-5 py-2 rounded-full text-sm font-bold transition-all duration-200 border ${
-            selectedCategory === 'all'
-              ? 'bg-blue-600 text-white border-blue-600 shadow-lg shadow-blue-200 transform scale-105'
-              : 'bg-white text-blue-600 border-blue-200 hover:bg-blue-50 hover:border-blue-300'
-          }`}
-        >
-          ทั้งหมด
-        </button>
-        {categories.map((category) => (
+    <div className="sticky top-4 z-40 mb-8">
+      <div className="glass-pill rounded-full p-1.5 mx-auto max-w-fit shadow-2xl backdrop-blur-xl">
+        <div className="flex space-x-1 overflow-x-auto no-scrollbar">
           <button
-            key={category.id}
-            onClick={() => onSelectCategory(category.id)}
-            className={`flex-shrink-0 px-5 py-2 rounded-full text-sm font-bold transition-all duration-200 border ${
-              selectedCategory === category.id
-                ? 'bg-blue-600 text-white border-blue-600 shadow-lg shadow-blue-200 transform scale-105'
-                : 'bg-white text-blue-600 border-blue-200 hover:bg-blue-50 hover:border-blue-300'
+            onClick={() => onSelectCategory('all')}
+            className={`flex-shrink-0 px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 ${
+              selectedCategory === 'all'
+                ? 'bg-white text-black shadow-[0_0_20px_rgba(255,255,255,0.3)] scale-100'
+                : 'text-white/60 hover:text-white hover:bg-white/10'
             }`}
           >
-            {category.title}
+            ทั้งหมด
           </button>
-        ))}
+          {categories.map((category) => (
+            <button
+              key={category.id}
+              onClick={() => onSelectCategory(category.id)}
+              className={`flex-shrink-0 px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 ${
+                selectedCategory === category.id
+                ? 'bg-white text-black shadow-[0_0_20px_rgba(255,255,255,0.3)] scale-100'
+                : 'text-white/60 hover:text-white hover:bg-white/10'
+              }`}
+            >
+              {category.title}
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );
