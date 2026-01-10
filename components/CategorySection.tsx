@@ -54,14 +54,7 @@ export const CategorySection: React.FC<CategorySectionProps> = ({ title, apps, i
              </span>
           )}
         </h2>
-        {hasMore && (
-          <button 
-            onClick={() => setIsExpanded(!isExpanded)}
-            className="text-blue-600 text-sm font-semibold hover:bg-blue-50 px-3 py-1 rounded-full transition-colors"
-          >
-            {isExpanded ? 'ย่อลง' : 'ดูทั้งหมด'}
-          </button>
-        )}
+        {/* Removed the button from here */}
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -100,13 +93,19 @@ export const CategorySection: React.FC<CategorySectionProps> = ({ title, apps, i
         })}
       </div>
 
-      {!isExpanded && hasMore && (
+      {hasMore && (
         <button 
-          onClick={() => setIsExpanded(true)}
+          onClick={() => setIsExpanded(!isExpanded)}
           className="w-full mt-4 py-3 rounded-2xl border-2 border-dashed border-slate-200 text-slate-400 font-semibold hover:border-blue-300 hover:text-blue-500 hover:bg-blue-50/50 transition-all duration-300 flex items-center justify-center gap-2 group"
         >
-          <span>ดูแอพที่เหลืออีก {apps.length - 6} รายการ</span>
-          <svg className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+          <span>
+            {isExpanded 
+              ? 'ย่อลง' 
+              : `ดูแอพที่เหลืออีก ${apps.length - 6} รายการ`}
+          </span>
+          <svg className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={isExpanded ? "M5 15l7-7 7 7" : "M19 9l-7 7-7-7"}></path>
+          </svg>
         </button>
       )}
     </div>
