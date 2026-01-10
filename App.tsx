@@ -6,17 +6,11 @@ import { DetailView } from './components/DetailView';
 import { InstructionBanner } from './components/InstructionBanner';
 
 const App: React.FC = () => {
-  const [appId, setAppId] = useState<string | null>(null);
-
-  useEffect(() => {
+  // อ่านค่าจาก URL ทันทีที่เริ่มทำงาน เพื่อให้แสดงหน้า Detail ได้เลยโดยไม่ต้องรอโหลด
+  const [appId, setAppId] = useState<string | null>(() => {
     const params = new URLSearchParams(window.location.search);
-    const id = params.get('appId');
-    if (id) {
-      setAppId(id);
-    } else {
-      setAppId(null);
-    }
-  }, [window.location.search]);
+    return params.get('appId');
+  });
 
   return (
     <div className="min-h-screen bg-white py-8 px-4 flex flex-col items-center">
