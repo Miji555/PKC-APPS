@@ -7,17 +7,33 @@ interface ContactInfoProps {
 
 export const ContactInfo: React.FC<ContactInfoProps> = ({ igHandle }) => {
   return (
-    <div className="p-4 rounded-md border border-[#d0d7de] bg-[#f6f8fa] flex items-start space-x-3">
-      <div className="mt-1">
-        <svg className="w-5 h-5 text-[#0969da]" viewBox="0 0 16 16" fill="currentColor">
-          <path d="M0 8a8 8 0 1116 0A8 8 0 010 8zm8-6.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM6.5 7.75A.75.75 0 017.25 7h1.5a.75.75 0 010 1.5h-1.5a.75.75 0 01-.75-.75zM8.25 10a.75.75 0 00-1.5 0v1.25a.75.75 0 001.5 0V10zM8 4a1 1 0 110 2 1 1 0 010-2z"></path>
+    <div className="p-4 rounded-xl border border-[#d0d7de] bg-[#f6f8fa] flex items-center justify-between group hover:border-[#0969da] transition-colors">
+      <div className="flex items-center space-x-3">
+        <div className="bg-[#0969da] p-2 rounded-lg">
+          <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+          </svg>
+        </div>
+        <div>
+          <p className="text-[#1f2328] font-semibold text-sm">
+            ต้องการแอปเพิ่มเติม?
+          </p>
+          <p className="text-[#636c76] text-xs">
+            ส่งข้อความขอแอปที่คุณต้องการได้ทันที
+          </p>
+        </div>
+      </div>
+      <a 
+        href={`https://instagram.com/${igHandle}`} 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        className="flex items-center space-x-1 bg-white border border-[#d0d7de] hover:border-[#0969da] hover:text-[#0969da] px-4 py-2 rounded-lg text-sm font-bold shadow-sm transition-all active:scale-95"
+      >
+        <span>IG: {igHandle}</span>
+        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
         </svg>
-      </div>
-      <div>
-        <p className="text-[#1f2328] font-medium">
-          อยากได้แอพไหน ติดต่อ <a href={`https://instagram.com/${igHandle}`} target="_blank" rel="noopener noreferrer" className="text-[#0969da] hover:underline font-bold tracking-wide">IG: {igHandle}</a>
-        </p>
-      </div>
+      </a>
     </div>
   );
 };

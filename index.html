@@ -1,17 +1,16 @@
-
 <!DOCTYPE html>
 <html lang="th">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PKC APPS</title>
+  <title>Download and Updates - PKC APPS</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   
   <script>
+    // Smart App Banner Injection based on appId query param
     (function() {
       try {
         const urlParams = new URLSearchParams(window.location.search);
@@ -33,14 +32,13 @@
       font-family: 'Inter', 'Noto Sans Thai', sans-serif;
       background-color: #ffffff;
       color: #1a1a1a;
+      -webkit-font-smoothing: antialiased;
     }
   </style>
-
-  <script type="importmap">
+<script type="importmap">
 {
   "imports": {
-    "react": "https://esm.sh/react@18.2.0",
-    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+    "react": "https://esm.sh/react@^19.2.3",
     "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
     "react/": "https://esm.sh/react@^19.2.3/"
   }
@@ -49,128 +47,5 @@
 </head>
 <body>
   <div id="root"></div>
-
-  <script type="text/babel" data-type="module">
-    import React from 'react';
-    import ReactDOM from 'react-dom/client';
-
-    const CONTACT_IG = 'ddddddni._o';
-
-    const CATEGORIES = [
-      {
-        id: 'social',
-        title: 'Social Media',
-        apps: [
-          { id: 'facebook', name: 'Facebook', subtitle: 'Social Network', url: 'https://apps.apple.com/th/app/facebook/id284882215', icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8d/62/1d/8d621d74-2c26-5384-6330-84c68023758b/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/100x100bb.png' },
-          { id: 'messenger', name: 'Messenger', subtitle: 'Chat & Video Call', url: 'https://apps.apple.com/th/app/messenger/id454638411', icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/55/26/d7/5526d787-84c1-657d-6c1c-96b5278c5208/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/100x100bb.png' },
-          { id: 'instagram', name: 'Instagram', subtitle: 'Photos & Videos', url: 'https://apps.apple.com/th/app/instagram/id389801252', icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c7/2b/96/c72b9631-f18b-6677-789a-6c174358826d/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/100x100bb.png' },
-          { id: 'line', name: 'LINE', subtitle: 'Chat & Free Calls', url: 'https://apps.apple.com/th/app/line/id443904275', icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c3/13/26/c31326c9-f1c5-0912-320d-88b17b6a6711/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/100x100bb.png' },
-          { id: 'discord', name: 'Discord', subtitle: 'Communities', url: 'https://apps.apple.com/th/app/discord/id985746746', icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4a/04/00/4a040082-9092-23c5-6804-06927d118933/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/100x100bb.png' }
-        ]
-      },
-      {
-        id: 'media',
-        title: 'Video & Music',
-        apps: [
-          { id: 'youtube', name: 'YouTube', subtitle: 'Video Streaming', url: 'https://apps.apple.com/th/app/youtube/id544007664', icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/97/3d/8e/973d8e33-2895-4632-411a-3e3e4043e066/logo_youtube_color-0-0-1x_U007emarketing-0-0-0-6-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220.png/100x100bb.png' },
-          { id: 'netflix', name: 'Netflix', subtitle: 'Movies & Series', url: 'https://apps.apple.com/th/app/netflix/id363590051', icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/80/7e/4d/807e4d82-e56d-543e-c852-6c92989b6b69/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/100x100bb.png' },
-          { id: 'tiktok', name: 'TikTok', subtitle: 'Short Videos', url: 'https://apps.apple.com/th/app/tiktok/id1235601864', icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/18/d8/67/18d867c2-9e2c-47d0-1498-5c493c403330/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/100x100bb.png' },
-          { id: 'ytm', name: 'YouTube Music', subtitle: 'Music App', url: 'https://apps.apple.com/th/app/youtube-music/id1017492454', icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/97/3d/8e/973d8e33-2895-4632-411a-3e3e4043e066/logo_youtube_music_color-0-0-1x_U007emarketing-0-0-0-6-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220.png/100x100bb.png' }
-        ]
-      },
-      {
-          id: 'work',
-          title: 'Education & Productivity',
-          apps: [
-            { id: 'chatgpt', name: 'ChatGPT', subtitle: 'AI Assistant', url: 'https://apps.apple.com/th/app/chatgpt/id6448311069', icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7e/67/82/7e67828c-482a-9e2c-6330-84c68023758b/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/100x100bb.png' },
-            { id: 'goodnotes', name: 'Goodnotes 6', subtitle: 'Note-taking', url: 'https://apps.apple.com/th/app/goodnotes/id1444383602', icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/91/9e/7b/919e7b30-c831-50e5-7973-206e0176f183/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/100x100bb.png' },
-            { id: 'gdocs', name: 'Google Docs', subtitle: 'Word Editing', url: 'https://apps.apple.com/th/app/google-docs/id842842640', icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e0/75/f0/e075f0da-271d-a417-09f1-f76156e52c80/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/100x100bb.png' }
-          ]
-      }
-    ];
-
-    const getAppleId = (url) => {
-      if (!url) return null;
-      const match = url.match(/id(\d+)/);
-      return match ? match[1] : null;
-    };
-
-    const Header = () => (
-      <div className="mb-8 border-b border-[#d0d7de] pb-6">
-        <h1 className="text-2xl font-semibold text-[#1f2328] mb-2">PKC APPS</h1>
-        <p className="text-[#636c76]">DOWNLOAD AND UPDATE แอปพลิเคชัน สำหรับ iPad ของโรงเรียน</p>
-      </div>
-    );
-
-    const ContactInfo = () => (
-      <div className="mb-8 p-4 rounded-md border border-[#d0d7de] bg-[#f6f8fa] flex items-start space-x-3">
-        <div className="mt-1"><svg className="w-5 h-5 text-[#0969da]" viewBox="0 0 16 16" fill="currentColor"><path d="M0 8a8 8 0 1116 0A8 8 0 010 8zm8-6.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM6.5 7.75A.75.75 0 017.25 7h1.5a.75.75 0 010 1.5h-1.5a.75.75 0 01-.75-.75zM8.25 10a.75.75 0 00-1.5 0v1.25a.75.75 0 001.5 0V10zM8 4a1 1 0 110 2 1 1 0 010-2z"></path></svg></div>
-        <div>
-          <p className="text-[#1f2328] font-medium">
-            อยากได้แอพไหน ติดต่อ <a href={`https://instagram.com/${CONTACT_IG}`} target="_blank" className="text-[#0969da] hover:underline font-bold">IG: {CONTACT_IG}</a>
-          </p>
-        </div>
-      </div>
-    );
-
-    const CategorySection = ({ category }) => (
-      <div className="border border-[#d0d7de] rounded-md overflow-hidden mb-6">
-        <div className="bg-[#f6f8fa] px-4 py-3 border-b border-[#d0d7de] flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <svg className="w-4 h-4 text-[#636c76]" viewBox="0 0 16 16" fill="currentColor"><path d="M1.75 1A1.75 1.75 0 000 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0016 13.25v-8.5A1.75 1.75 0 0014.25 3H7.5a.25.25 0 01-.2-.1l-.9-1.2c-.33-.44-.85-.7-1.4-.7h-3.25z"></path></svg>
-            <span className="font-semibold text-[#1f2328] text-sm">{category.title}</span>
-          </div>
-          <span className="text-xs text-[#636c76]">{category.apps.length} items</span>
-        </div>
-        <div className="divide-y divide-[#d0d7de]">
-          {category.apps.map((app) => (
-            <div key={app.id} className="px-4 py-3 hover:bg-[#f6f8fa] transition-colors flex items-center justify-between group">
-              <div className="flex items-center space-x-3 overflow-hidden">
-                <img src={app.icon} className="w-6 h-6 rounded-sm flex-shrink-0" referrerPolicy="no-referrer" />
-                <div className="flex flex-col truncate">
-                  <a href={`?appId=${getAppleId(app.url)}`} className="text-[#0969da] font-medium hover:underline text-sm truncate">{app.name}</a>
-                  <span className="text-[11px] text-[#636c76] truncate">{app.subtitle}</span>
-                </div>
-              </div>
-              <a href={`?appId=${getAppleId(app.url)}`} className="text-xs font-medium text-[#1f2328] bg-white border border-[#d0d7de] px-2 py-1 rounded shadow-sm hover:bg-[#f3f4f6] transition-colors">Download</a>
-            </div>
-          ))}
-        </div>
-      </div>
-    );
-
-    const DetailView = ({ appId }) => (
-      <div className="flex flex-col items-center pt-8 px-4 text-center">
-        <h1 className="text-2xl font-bold mb-4">Download & Updates</h1>
-        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6 text-left max-w-md">
-          <p className="text-yellow-800 text-sm font-medium">ใช้ Safari เท่านั้น ถ้าแอพไม่ขึ้นให้ Download ลองเข้าออก Safari ใหม่</p>
-        </div>
-        <a href={window.location.pathname} className="text-[#0969da] hover:underline font-medium">Back to Apps</a>
-      </div>
-    );
-
-    const App = () => {
-      const [appId, setAppId] = React.useState(new URLSearchParams(window.location.search).get('appId'));
-      return (
-        <div className="min-h-screen bg-white py-8 px-4 flex flex-col items-center">
-          <div className="w-full max-w-3xl">
-            <Header />
-            {appId ? <DetailView appId={appId} /> : (
-              <>
-                <ContactInfo />
-                {CATEGORIES.map(c => <CategorySection key={c.id} category={c} />)}
-              </>
-            )}
-            <footer className="mt-12 pt-8 border-t border-[#d0d7de] text-center text-[#636c76] text-sm">
-              <p>© {new Date().getFullYear()} PKC APPS</p>
-            </footer>
-          </div>
-        </div>
-      );
-    }
-
-    const root = ReactDOM.createRoot(document.getElementById('root'));
-    root.render(<App />);
-  </script>
 </body>
 </html>
