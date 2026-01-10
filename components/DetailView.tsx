@@ -1,5 +1,5 @@
 import React from 'react';
-import { CATEGORIES } from '../constants.ts';
+import { CATEGORIES } from '../constants';
 
 interface DetailViewProps {
   appId: string;
@@ -16,7 +16,14 @@ export const DetailView: React.FC<DetailViewProps> = ({ appId }) => {
     return colors[Math.abs(hash) % colors.length];
   };
 
-  if (!app) return <div className="text-center py-20"><p>ไม่พบแอปที่ต้องการ</p><a href="/" className="text-blue-500 hover:underline">กลับไปหน้าแรก</a></div>;
+  if (!app) {
+    return (
+      <div className="text-center py-20">
+        <p className="text-gray-500 mb-4">ไม่พบแอปที่ต้องการ</p>
+        <a href="/" className="text-blue-500 hover:underline font-bold">กลับไปหน้าแรก</a>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col items-center pt-8 px-4 text-center animate-in">

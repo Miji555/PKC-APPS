@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { CATEGORIES } from './constants.ts';
-import { CategorySection } from './components/CategorySection.tsx';
-import { Header } from './components/Header.tsx';
-import { DetailView } from './components/DetailView.tsx';
+import { CATEGORIES } from './constants';
+import { CategorySection } from './components/CategorySection';
+import { Header } from './components/Header';
+import { DetailView } from './components/DetailView';
 
 const App: React.FC = () => {
   const [appId, setAppId] = useState<string | null>(null);
@@ -12,8 +12,10 @@ const App: React.FC = () => {
     const id = params.get('appId');
     if (id) {
       setAppId(id);
+    } else {
+      setAppId(null);
     }
-  }, []);
+  }, [window.location.search]);
 
   return (
     <div className="min-h-screen bg-white py-8 px-4 flex flex-col items-center">
@@ -21,19 +23,15 @@ const App: React.FC = () => {
         <Header />
 
         {!appId ? (
-          <>
-            {/* รายการแอป */}
-            <div className="space-y-6">
-              {CATEGORIES.map((category) => (
-                <CategorySection key={category.id} category={category} />
-              ))}
-            </div>
-          </>
+          <div className="space-y-6">
+            {CATEGORIES.map((category) => (
+              <CategorySection key={category.id} category={category} />
+            ))}
+          </div>
         ) : (
           <DetailView appId={appId} />
         )}
 
-        {/* Footer */}
         <footer className="mt-16 pt-8 border-t border-[#d0d7de] text-center text-[#636c76] text-sm">
           <p>© {new Date().getFullYear()} PKC APPS • ระบบดาวน์โหลดและอัปเดต</p>
         </footer>
