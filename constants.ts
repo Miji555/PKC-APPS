@@ -110,7 +110,6 @@ export const CATEGORIES: Category[] = [
       { id: 'pinterest', name: 'Pinterest', subtitle: 'Find and save ideas', url: 'https://apps.apple.com/th/app/pinterest/id429047995' },
       { id: 'discord', name: 'Discord', subtitle: 'Chat, Talk & Hangout', url: 'https://apps.apple.com/th/app/discord-chat-talk-hangout/id985746746' },
       { id: 'threads', name: 'Threads', subtitle: 'An Instagram app', url: 'https://apps.apple.com/th/app/threads-an-instagram-app/id6446901002' },
-      { id: 'messages', name: 'ข้อความ', subtitle: 'แอปส่งข้อความจาก Apple', url: 'https://apps.apple.com/th/app/%E0%B8%82-%E0%B8%AD%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1/id1146560473?l=th' },
       { id: 'telegram', name: 'Telegram Messenger', subtitle: 'Simple, fast, secure.', url: 'https://apps.apple.com/th/app/telegram-messenger/id686449807?l=th' }
     ]
   },
