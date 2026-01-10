@@ -22,9 +22,9 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen py-6 px-4 flex flex-col items-center relative overflow-hidden">
-      {/* Abstract Background Orbs */}
-      <div className="fixed top-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[100px] pointer-events-none mix-blend-screen animate-pulse"></div>
-      <div className="fixed bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-purple-600/20 rounded-full blur-[120px] pointer-events-none mix-blend-screen animate-pulse" style={{animationDelay: '2s'}}></div>
+      {/* Subtle Aurora Background */}
+      <div className="fixed top-[-20%] left-[-10%] w-[800px] h-[800px] bg-blue-400/10 rounded-full blur-[120px] pointer-events-none mix-blend-multiply animate-pulse"></div>
+      <div className="fixed bottom-[-20%] right-[-10%] w-[800px] h-[800px] bg-purple-400/10 rounded-full blur-[120px] pointer-events-none mix-blend-multiply" style={{animationDelay: '3s'}}></div>
 
       <div className="w-full max-w-3xl z-10">
         <Header />
@@ -45,8 +45,8 @@ const App: React.FC = () => {
               ))}
               
               {displayedCategories.length === 0 && (
-                <div className="text-center py-12 glass rounded-3xl">
-                  <p className="text-white/50 font-medium">ไม่พบรายการในหมวดหมู่นี้</p>
+                <div className="text-center py-16 glass-card rounded-3xl edge-shine">
+                  <p className="text-gray-400 font-medium">ไม่พบรายการในหมวดหมู่นี้</p>
                 </div>
               )}
             </div>
@@ -55,8 +55,8 @@ const App: React.FC = () => {
           <DetailView appId={appId} />
         )}
 
-        <footer className="mt-16 pt-8 border-t border-white/10 text-center text-white/30 text-xs font-medium">
-          <p>© {new Date().getFullYear()} PKC APPS • Liquid Glass OS v26</p>
+        <footer className="mt-16 pt-8 border-t border-gray-200 text-center text-gray-400 text-xs font-medium">
+          <p>© {new Date().getFullYear()} PKC APPS • Liquid Glass OS v26 White</p>
         </footer>
       </div>
     </div>

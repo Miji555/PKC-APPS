@@ -9,15 +9,15 @@ interface MenuBarProps {
 
 export const MenuBar: React.FC<MenuBarProps> = ({ categories, selectedCategory, onSelectCategory }) => {
   return (
-    <div className="sticky top-4 z-40 mb-8">
-      <div className="glass-pill rounded-full p-1.5 mx-auto max-w-fit shadow-2xl backdrop-blur-xl">
-        <div className="flex space-x-1 overflow-x-auto no-scrollbar">
+    <div className="sticky top-4 z-40 mb-8 flex justify-center">
+      <div className="glass-panel rounded-full p-1.5 shadow-[0_8px_30px_rgb(0,0,0,0.04)] backdrop-blur-xl border border-white/60">
+        <div className="flex space-x-1 overflow-x-auto no-scrollbar relative">
           <button
             onClick={() => onSelectCategory('all')}
-            className={`flex-shrink-0 px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 ${
+            className={`flex-shrink-0 px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 relative z-10 ${
               selectedCategory === 'all'
-                ? 'bg-white text-black shadow-[0_0_20px_rgba(255,255,255,0.3)] scale-100'
-                : 'text-white/60 hover:text-white hover:bg-white/10'
+                ? 'text-black bg-white shadow-[0_2px_8px_rgba(0,0,0,0.08)] ring-1 ring-black/5'
+                : 'text-gray-500 hover:text-black hover:bg-white/40'
             }`}
           >
             ทั้งหมด
@@ -26,10 +26,10 @@ export const MenuBar: React.FC<MenuBarProps> = ({ categories, selectedCategory, 
             <button
               key={category.id}
               onClick={() => onSelectCategory(category.id)}
-              className={`flex-shrink-0 px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 ${
+              className={`flex-shrink-0 px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 relative z-10 ${
                 selectedCategory === category.id
-                ? 'bg-white text-black shadow-[0_0_20px_rgba(255,255,255,0.3)] scale-100'
-                : 'text-white/60 hover:text-white hover:bg-white/10'
+                ? 'text-black bg-white shadow-[0_2px_8px_rgba(0,0,0,0.08)] ring-1 ring-black/5'
+                : 'text-gray-500 hover:text-black hover:bg-white/40'
               }`}
             >
               {category.title}
