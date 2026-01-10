@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { CATEGORIES } from '../constants';
 
 interface DetailViewProps {
@@ -8,6 +8,10 @@ interface DetailViewProps {
 export const DetailView: React.FC<DetailViewProps> = ({ appId }) => {
   const allApps = CATEGORIES.flatMap(c => c.apps);
   const app = allApps.find(a => a.url.includes(`id${appId}`));
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const getBgColor = (name: string) => {
     const colors = ['bg-red-500', 'bg-blue-500', 'bg-green-500', 'bg-yellow-500', 'bg-purple-500', 'bg-pink-500'];
