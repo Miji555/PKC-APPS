@@ -1,7 +1,8 @@
 import React from 'react';
-import { CATEGORIES } from './constants.ts';
+import { CATEGORIES, CONTACT_IG } from './constants.ts';
 import { CategorySection } from './components/CategorySection.tsx';
 import { Header } from './components/Header.tsx';
+import { ContactInfo } from './components/ContactInfo.tsx';
 
 const App: React.FC = () => {
   return (
@@ -33,6 +34,11 @@ const App: React.FC = () => {
           {CATEGORIES.map((category) => (
             <CategorySection key={category.id} category={category} />
           ))}
+        </div>
+
+        {/* Contact Info */}
+        <div className="mt-8">
+          <ContactInfo igHandle={CONTACT_IG} />
         </div>
 
         {/* Footer */}
