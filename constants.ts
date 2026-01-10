@@ -1,4 +1,4 @@
-import { Category } from './types';
+import { Category } from './types.ts';
 
 export const CATEGORIES: Category[] = [
   {
@@ -101,7 +101,6 @@ export const CATEGORIES: Category[] = [
     id: 'social',
     title: 'Social',
     apps: [
-      { id: 'line', name: 'LINE', subtitle: 'Calls & Messages', url: 'https://apps.apple.com/th/app/line/id443904275?l=th' },
       { id: 'facebook', name: 'Facebook', subtitle: 'Connect with friends & family', url: 'https://apps.apple.com/th/app/facebook/id284882215?l=th' },
       { id: 'messenger', name: 'Messenger', subtitle: 'Free text and video chat', url: 'https://apps.apple.com/th/app/messenger/id454638411?l=th' },
       { id: 'instagram', name: 'Instagram', subtitle: 'Photo & Video Sharing', url: 'https://apps.apple.com/th/app/instagram/id389801252?l=th' },
@@ -110,6 +109,7 @@ export const CATEGORIES: Category[] = [
       { id: 'pinterest', name: 'Pinterest', subtitle: 'Find and save ideas', url: 'https://apps.apple.com/th/app/pinterest/id429047995' },
       { id: 'discord', name: 'Discord', subtitle: 'Chat, Talk & Hangout', url: 'https://apps.apple.com/th/app/discord-chat-talk-hangout/id985746746' },
       { id: 'threads', name: 'Threads', subtitle: 'An Instagram app', url: 'https://apps.apple.com/th/app/threads-an-instagram-app/id6446901002' },
+      { id: 'messages', name: 'ข้อความ', subtitle: 'แอปส่งข้อความจาก Apple', url: 'https://apps.apple.com/th/app/%E0%B8%82-%E0%B8%AD%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1/id1146560473?l=th' },
       { id: 'telegram', name: 'Telegram Messenger', subtitle: 'Simple, fast, secure.', url: 'https://apps.apple.com/th/app/telegram-messenger/id686449807?l=th' }
     ]
   },
@@ -129,7 +129,7 @@ export const CATEGORIES: Category[] = [
     id: 'utility',
     title: 'Utility',
     apps: [
-      { id: 'shopee', name: 'Shopee TH: ซื้อของออนไลน์', subtitle: 'ช้อปสนุก ส่งฟรี* ทั่วไทย', url: 'https://apps.apple.com/th/app/shopee-th-%E0%B8%8B-%E0%B8%AD%E0%B8%82%E0%B8%AD%E0%B8%AD%E0%B8%99%E0%B9%84%E0%B8%A5%E0%B8%99-%E0%B8%AA-%E0%B8%87%E0%B9%84%E0%B8%A7/id959841453?l=th' },
+      { id: 'shopee', name: 'Shopee TH: ซื้อของออนไลน์', subtitle: 'ช้อปสนุก ส่งฟรี* ทั่วไทย', url: 'https://apps.apple.com/th/app/shopee-th-%E0%B8%8B-%E0%B8%AD%E0%B8%82%E0%B8%AD%E0%B8%87%E0%B8%AD%E0%B8%AD%E0%B8%99%E0%B9%84%E0%B8%A5%E0%B8%99-%E0%B8%AA-%E0%B8%87%E0%B9%84%E0%B8%A7/id959841453?l=th' },
       { id: 'meitu', name: 'Meitu', subtitle: 'Photo & Video Editor', url: 'https://apps.apple.com/th/app/meitu-photo-video-editor/id416048305' },
       { id: 'notes-plus', name: 'Notes+', subtitle: 'Simple & Creative Notes', url: 'https://apps.apple.com/th/app/notes/id1609361989?l=th' },
       { id: 'procreate', name: 'Procreate', subtitle: 'Sketch, paint, create.', url: 'https://apps.apple.com/th/app/procreate/id425073498?l=th' },
