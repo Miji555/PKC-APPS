@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { CATEGORIES } from './constants.ts';
 import { CategorySection } from './components/CategorySection.tsx';
 import { Header } from './components/Header.tsx';
-import { InstructionBanner } from './components/InstructionBanner.tsx';
 import { DetailView } from './components/DetailView.tsx';
 
 const App: React.FC = () => {
@@ -23,9 +22,6 @@ const App: React.FC = () => {
 
         {!appId ? (
           <>
-            {/* คำแนะนำเรื่อง Apple ID */}
-            <InstructionBanner />
-
             {/* รายการแอป */}
             <div className="space-y-6">
               {CATEGORIES.map((category) => (
