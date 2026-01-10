@@ -19,13 +19,6 @@ export const CATEGORIES: Category[] = [
         subtitle: 'สุดยอดเกม MOBA 5v5',
         url: 'https://apps.apple.com/th/app/garena-rov-5v5-festival/id1150337432',
         icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/21/92/8a/21928ab1-2a6c-e06a-9351-831518f9746b/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/100x100bb.png'
-      },
-      {
-        id: 'efootball',
-        name: 'eFootball™',
-        subtitle: 'ที่สุดของเกมฟุตบอลสมจริง',
-        url: 'https://apps.apple.com/th/app/efootball/id1117270703?l=th',
-        icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/10/7c/82/107c828c-482a-9e2c-6330-84c68023758b/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/100x100bb.png'
       }
     ]
   },
@@ -150,20 +143,6 @@ export const CATEGORIES: Category[] = [
     id: 'work',
     title: 'การทำงาน (Productivity)',
     apps: [
-      {
-        id: 'apple-notes',
-        name: 'Notes',
-        subtitle: 'จดบันทึกและจัดการไอเดีย',
-        url: 'https://apps.apple.com/th/app/notes/id1609361989?l=th',
-        icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/44/21/72/44217272-a083-0599-4d6d-68e3128913b4/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/100x100bb.png'
-      },
-      {
-        id: 'notability',
-        name: 'Notability',
-        subtitle: 'จดบันทึกและทำเครื่องหมาย PDF',
-        url: 'https://apps.apple.com/th/app/notability-smarter-ai-notes/id360593530?l=th',
-        icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/80/7e/4d/807e4d82-e56d-543e-c852-6c92989b6b69/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/100x100bb.png'
-      },
       {
         id: 'gmail',
         name: 'Gmail',
