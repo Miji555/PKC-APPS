@@ -8,7 +8,7 @@ export const CATEGORIES: Category[] = [
       {
         id: 'minecraft',
         name: 'Minecraft: สร้างโลกของคุณ',
-        subtitle: 'เกมจำลองการสร้างบล็อก',
+        subtitle: 'สร้างและสำรวจโลกไร้ขีดจำกัด',
         url: 'https://apps.apple.com/th/app/minecraft/id479516143'
       },
       {
@@ -26,67 +26,67 @@ export const CATEGORIES: Category[] = [
       {
         id: 'roblox',
         name: 'Roblox',
-        subtitle: 'Adventure, Action, Creation',
+        subtitle: 'โลกแห่งจินตนาการเสมือนจริง',
         url: 'https://apps.apple.com/th/app/roblox/id1056524660'
       },
       {
         id: 'genshin',
         name: 'Genshin Impact',
-        subtitle: 'Open-world adventure RPG',
+        subtitle: 'ผจญภัยในโลกกว้างแฟนตาซี',
         url: 'https://apps.apple.com/th/app/genshin-impact/id1517783697?l=th'
       },
       {
         id: 'honkai',
         name: 'Honkai: Star Rail',
-        subtitle: 'Space Fantasy RPG',
+        subtitle: 'การเดินทางข้ามดวงดาวครั้งใหม่',
         url: 'https://apps.apple.com/th/app/honkai-star-rail/id1599719154?l=th'
       },
       {
         id: 'hayday',
         name: 'Hay Day',
-        subtitle: 'Farm Building Game',
+        subtitle: 'สร้างฟาร์มในฝันของคุณ',
         url: 'https://apps.apple.com/th/app/hay-day/id506627515?l=th'
       },
       {
         id: 'goose-duck',
         name: 'Goose Goose Duck',
-        subtitle: 'A Game of Social Deduction',
+        subtitle: 'เกมสืบสวนหาคนร้ายสุดปั่น',
         url: 'https://apps.apple.com/th/app/goose-goose-duck/id1558248707?l=th'
       },
       {
         id: 'among-us',
         name: 'Among Us',
-        subtitle: 'Social deduction and teamwork',
+        subtitle: 'เกมจับโกหกยอดนิยม',
         url: 'https://apps.apple.com/th/app/among-us/id1351168404?l=th'
       },
       {
         id: 'cod-mobile',
         name: 'Call of Duty: Mobile - Garena',
-        subtitle: 'Action, Shooter, Battle Royale',
+        subtitle: 'เกมยิง FPS ระดับโลก',
         url: 'https://apps.apple.com/th/app/call-of-duty-mobile-garena/id1465688043?l=th'
       },
       {
         id: 'pubg-mobile',
         name: 'PUBG MOBILE',
-        subtitle: 'Original Battle Royale',
+        subtitle: 'ต้นฉบับ Battle Royale บนมือถือ',
         url: 'https://apps.apple.com/th/app/pubg-mobile/id1330123889?l=th'
       },
       {
         id: 'golden-spatula',
         name: 'Golden Spatula',
-        subtitle: 'Auto-chess battle game',
+        subtitle: 'ประลองกลยุทธ์ทีมไฟท์',
         url: 'https://apps.apple.com/th/app/golden-spatula/id6661023265'
       },
       {
         id: 'mobile-legends',
         name: 'Mobile Legends: Bang Bang',
-        subtitle: '5v5 Fair MOBA for Mobile',
+        subtitle: 'เกม MOBA 5v5 บนมือถือ',
         url: 'https://apps.apple.com/th/app/mobile-legends-bang-bang/id1160056295?l=th'
       },
       {
         id: 'subway-surfers',
         name: 'Subway Surfers',
-        subtitle: 'Endless runner game',
+        subtitle: 'วิ่งหลบรถไฟสุดมันส์',
         url: 'https://apps.apple.com/th/app/subway-surfers/id512939461?l=th'
       },
       {
@@ -101,39 +101,39 @@ export const CATEGORIES: Category[] = [
     id: 'social',
     title: 'Social',
     apps: [
-      { id: 'line', name: 'LINE', subtitle: 'Calls & Messages', url: 'https://apps.apple.com/th/app/line/id443904275?l=th' },
-      { id: 'facebook', name: 'Facebook', subtitle: 'Connect with friends & family', url: 'https://apps.apple.com/th/app/facebook/id284882215?l=th' },
-      { id: 'messenger', name: 'Messenger', subtitle: 'Free text and video chat', url: 'https://apps.apple.com/th/app/messenger/id454638411?l=th' },
-      { id: 'instagram', name: 'Instagram', subtitle: 'Photo & Video Sharing', url: 'https://apps.apple.com/th/app/instagram/id389801252?l=th' },
-      { id: 'tiktok', name: 'TikTok', subtitle: 'Videos, Music & Live Streams', url: 'https://apps.apple.com/th/app/tiktok/id1235601864?l=th' },
-      { id: 'x', name: 'X', subtitle: 'The global digital town square', url: 'https://apps.apple.com/th/app/x/id333903271' },
-      { id: 'pinterest', name: 'Pinterest', subtitle: 'Find and save ideas', url: 'https://apps.apple.com/th/app/pinterest/id429047995' },
-      { id: 'discord', name: 'Discord', subtitle: 'Chat, Talk & Hangout', url: 'https://apps.apple.com/th/app/discord-chat-talk-hangout/id985746746' },
-      { id: 'threads', name: 'Threads', subtitle: 'An Instagram app', url: 'https://apps.apple.com/th/app/threads-an-instagram-app/id6446901002' },
-      { id: 'telegram', name: 'Telegram Messenger', subtitle: 'Simple, fast, secure.', url: 'https://apps.apple.com/th/app/telegram-messenger/id686449807?l=th' }
+      { id: 'line', name: 'LINE', subtitle: 'แชทและโทรฟรี สะดวกง่ายดาย', url: 'https://apps.apple.com/th/app/line/id443904275?l=th' },
+      { id: 'facebook', name: 'Facebook', subtitle: 'เชื่อมต่อกับสิ่งที่สนใจ', url: 'https://apps.apple.com/th/app/facebook/id284882215?l=th' },
+      { id: 'messenger', name: 'Messenger', subtitle: 'ส่งข้อความและวิดีโอคอลฟรี', url: 'https://apps.apple.com/th/app/messenger/id454638411?l=th' },
+      { id: 'instagram', name: 'Instagram', subtitle: 'แชร์รูปภาพและวิดีโอ', url: 'https://apps.apple.com/th/app/instagram/id389801252?l=th' },
+      { id: 'tiktok', name: 'TikTok', subtitle: 'วิดีโอสั้นและไลฟ์สตรีม', url: 'https://apps.apple.com/th/app/tiktok/id1235601864?l=th' },
+      { id: 'x', name: 'X', subtitle: 'บทสนทนาที่เกิดขึ้นทั่วโลก', url: 'https://apps.apple.com/th/app/x/id333903271' },
+      { id: 'pinterest', name: 'Pinterest', subtitle: 'ค้นหาไอเดียและแรงบันดาลใจ', url: 'https://apps.apple.com/th/app/pinterest/id429047995' },
+      { id: 'discord', name: 'Discord', subtitle: 'พูดคุยและแฮงก์เอาท์', url: 'https://apps.apple.com/th/app/discord-chat-talk-hangout/id985746746' },
+      { id: 'threads', name: 'Threads', subtitle: 'แอปสนทนาข้อความจาก Instagram', url: 'https://apps.apple.com/th/app/threads-an-instagram-app/id6446901002' },
+      { id: 'telegram', name: 'Telegram Messenger', subtitle: 'แชทที่รวดเร็วและปลอดภัย', url: 'https://apps.apple.com/th/app/telegram-messenger/id686449807?l=th' }
     ]
   },
   {
     id: 'entertainment',
     title: 'Entertainment',
     apps: [
-      { id: 'youtube', name: 'YouTube', subtitle: 'Watch, Listen, Stream', url: 'https://apps.apple.com/th/app/youtube/id544007664?l=th' },
-      { id: 'bilibili', name: 'Bilibili', subtitle: 'Anime, Videos & Community', url: 'https://apps.apple.com/th/app/bilibili-%E0%B8%AD%E0%B8%99-%E0%B9%80%E0%B8%A1%E0%B8%B0-hd-%E0%B8%A7-%E0%B8%94-%E0%B9%82%E0%B8%AD/id1548857482?l=th' },
-      { id: 'netflix', name: 'Netflix', subtitle: 'Movies & TV Shows', url: 'https://apps.apple.com/th/app/netflix/id363590051' },
-      { id: 'iqiyi', name: 'iQIYI', subtitle: 'Drama, Anime, Show', url: 'https://apps.apple.com/th/app/iqiyi-%E0%B8%8B-%E0%B8%A3-%E0%B8%AA-%E0%B8%A7%E0%B8%B2%E0%B9%84%E0%B8%A3%E0%B8%95-%E0%B9%82%E0%B8%8A%E0%B8%A7/id1461999674?l=th' },
-      { id: 'viu', name: 'Viu', subtitle: 'Korean Drama & Variety', url: 'https://apps.apple.com/th/app/viu/id1036095179?l=th' },
-      { id: 'spotify', name: 'Spotify', subtitle: 'Music and Podcasts', url: 'https://apps.apple.com/th/app/spotify-music-and-podcasts/id324684580' }
+      { id: 'youtube', name: 'YouTube', subtitle: 'ดู ฟัง และสตรีมสิ่งที่คุณชอบ', url: 'https://apps.apple.com/th/app/youtube/id544007664?l=th' },
+      { id: 'bilibili', name: 'Bilibili', subtitle: 'แหล่งรวมอนิเมะและวิดีโอ', url: 'https://apps.apple.com/th/app/bilibili-%E0%B8%AD%E0%B8%99-%E0%B9%80%E0%B8%A1%E0%B8%B0-hd-%E0%B8%A7-%E0%B8%94-%E0%B9%82%E0%B8%AD/id1548857482?l=th' },
+      { id: 'netflix', name: 'Netflix', subtitle: 'ภาพยนตร์และซีรีส์ระดับโลก', url: 'https://apps.apple.com/th/app/netflix/id363590051' },
+      { id: 'iqiyi', name: 'iQIYI', subtitle: 'ซีรีส์เอเชียยอดนิยม', url: 'https://apps.apple.com/th/app/iqiyi-%E0%B8%8B-%E0%B8%A3-%E0%B8%AA-%E0%B8%A7%E0%B8%B2%E0%B9%84%E0%B8%A3%E0%B8%95-%E0%B9%82%E0%B8%8A%E0%B8%A7/id1461999674?l=th' },
+      { id: 'viu', name: 'Viu', subtitle: 'ซีรีส์เกาหลีและเอเชียใหม่ล่าสุด', url: 'https://apps.apple.com/th/app/viu/id1036095179?l=th' },
+      { id: 'spotify', name: 'Spotify', subtitle: 'ฟังเพลงและพอดแคสต์', url: 'https://apps.apple.com/th/app/spotify-music-and-podcasts/id324684580' }
     ]
   },
   {
     id: 'utility',
     title: 'Utility',
     apps: [
-      { id: 'shopee', name: 'Shopee TH: ซื้อของออนไลน์', subtitle: 'ช้อปสนุก ส่งฟรี* ทั่วไทย', url: 'https://apps.apple.com/th/app/shopee-th-%E0%B8%8B-%E0%B8%AD%E0%B8%82%E0%B8%AD%E0%B8%AD%E0%B8%99%E0%B9%84%E0%B8%A5%E0%B8%99-%E0%B8%AA-%E0%B8%87%E0%B9%84%E0%B8%A7/id959841453?l=th' },
-      { id: 'meitu', name: 'Meitu', subtitle: 'Photo & Video Editor', url: 'https://apps.apple.com/th/app/meitu-photo-video-editor/id416048305' },
-      { id: 'notes-plus', name: 'Notes+', subtitle: 'Simple & Creative Notes', url: 'https://apps.apple.com/th/app/notes/id1609361989?l=th' },
-      { id: 'procreate', name: 'Procreate', subtitle: 'Sketch, paint, create.', url: 'https://apps.apple.com/th/app/procreate/id425073498?l=th' },
-      { id: '1-1-1-1', name: '1.1.1.1: Faster Internet', subtitle: 'Faster & Safer Internet', url: 'https://apps.apple.com/th/app/1-1-1-1-faster-internet/id1423538627?l=th' },
+      { id: 'shopee', name: 'Shopee TH: ซื้อของออนไลน์', subtitle: 'ช้อปสนุก ส่งฟรีทั่วไทย', url: 'https://apps.apple.com/th/app/shopee-th-%E0%B8%8B-%E0%B8%AD%E0%B8%82%E0%B8%AD%E0%B8%AD%E0%B8%99%E0%B9%84%E0%B8%A5%E0%B8%99-%E0%B8%AA-%E0%B8%87%E0%B9%84%E0%B8%A7/id959841453?l=th' },
+      { id: 'meitu', name: 'Meitu', subtitle: 'แต่งรูปและวิดีโอสวยเป๊ะ', url: 'https://apps.apple.com/th/app/meitu-photo-video-editor/id416048305' },
+      { id: 'notes-plus', name: 'Notes+', subtitle: 'จดบันทึกง่ายๆ และสร้างสรรค์', url: 'https://apps.apple.com/th/app/notes/id1609361989?l=th' },
+      { id: 'procreate', name: 'Procreate', subtitle: 'วาดภาพ ระบายสี สร้างสรรค์', url: 'https://apps.apple.com/th/app/procreate/id425073498?l=th' },
+      { id: '1-1-1-1', name: '1.1.1.1: Faster Internet', subtitle: 'อินเทอร์เน็ตที่เร็วและปลอดภัยขึ้น', url: 'https://apps.apple.com/th/app/1-1-1-1-faster-internet/id1423538627?l=th' },
       { id: 'capcut', name: 'CapCut', subtitle: 'โปรแกรมตัดต่อวิดีโอ', url: 'https://apps.apple.com/th/app/capcut-%E0%B9%82%E0%B8%9B%E0%B8%A3%E0%B9%81%E0%B8%81%E0%B8%A3%E0%B8%A1%E0%B8%95-%E0%B8%94%E0%B8%95-%E0%B8%AD%E0%B8%A7-%E0%B8%94-%E0%B9%82%E0%B8%AD/id1500855883?l=th' }
     ]
   }

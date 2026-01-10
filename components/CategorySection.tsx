@@ -64,8 +64,8 @@ export const CategorySection: React.FC<CategorySectionProps> = ({ category }) =>
 
               {/* Button */}
               <div className="flex-shrink-0">
-                <button className="bg-slate-100 text-blue-600 font-bold text-xs py-2 px-5 rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300 shadow-sm">
-                  GET
+                <button className="bg-slate-100 text-blue-600 font-bold text-[10px] py-1.5 px-3 rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300 shadow-sm uppercase tracking-wide">
+                  Download
                 </button>
               </div>
             </div>

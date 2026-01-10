@@ -26,7 +26,7 @@ export const InstructionBanner: React.FC = () => {
           <div className="flex gap-3 items-start">
             <div className="w-1.5 h-1.5 rounded-full bg-red-400 mt-2 flex-shrink-0"></div>
             <p className="text-slate-600 text-sm font-medium leading-relaxed">
-              หากดาวน์โหลดแล้ว <span className="text-red-500 font-bold">จะไม่สามารถลบแอปออกจากเครื่องได้</span> (โปรดตรวจสอบก่อนติดตั้ง)
+              หากดาวน์โหลดแล้ว <span className="text-red-500 font-bold">จะไม่สามารถลบแอปออกจากเครื่องได้</span>
             </p>
           </div>
         </div>
