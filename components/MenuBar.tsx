@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React from 'react';
 import { Category } from '../types';
 
 interface MenuBarProps {
@@ -8,67 +8,25 @@ interface MenuBarProps {
 }
 
 export const MenuBar: React.FC<MenuBarProps> = ({ categories, selectedCategory, onSelectCategory }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [pillStyle, setPillStyle] = useState({ left: 0, width: 0, opacity: 0 });
-
   const allItems = [{ id: 'all', title: 'วันนี้' }, ...categories];
 
-  useEffect(() => {
-    const index = allItems.findIndex(c => c.id === selectedCategory);
-    setActiveIndex(index >= 0 ? index : 0);
-  }, [selectedCategory, categories]);
-
-  useEffect(() => {
-    // คำนวณตำแหน่งของ Pill background
-    if (containerRef.current) {
-      // Note: children[0] คือ div ของ pill background, ดังนั้นต้อง +1 เพื่อเข้าถึง button
-      const activeBtn = containerRef.current.children[activeIndex + 1] as HTMLElement;
-      
-      if (activeBtn) {
-        setPillStyle({
-          left: activeBtn.offsetLeft,
-          width: activeBtn.offsetWidth,
-          opacity: 1
-        });
-        
-        // เลื่อน Scrollbar แนวนอนให้ปุ่มที่เลือกอยู่ตรงกลาง (สำหรับมือถือ)
-        activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-      }
-    }
-  }, [activeIndex]);
-
   return (
-    <div className="sticky top-4 z-40 mb-10 flex justify-center px-4 pointer-events-none">
-      <div className="pointer-events-auto liquid-glass rounded-full p-1.5 backdrop-blur-2xl border border-white/40 max-w-full overflow-hidden transition-all duration-500 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]">
-        <div 
-          className="flex relative items-center overflow-x-auto no-scrollbar"
-          ref={containerRef}
-        >
-          {/* Liquid Pill Background */}
-          <div 
-            className="absolute top-0 bottom-0 my-auto h-full rounded-full liquid-pill transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]"
-            style={{ 
-              left: `${pillStyle.left}px`, 
-              width: `${pillStyle.width}px`,
-              opacity: pillStyle.opacity,
-            }}
-          />
-
-          {allItems.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => onSelectCategory(item.id)}
-              className={`flex-shrink-0 px-6 py-2.5 rounded-full text-[15px] font-bold transition-all duration-300 relative z-10 select-none whitespace-nowrap ${
-                selectedCategory === item.id
-                  ? 'text-slate-900 scale-105'
-                  : 'text-slate-600 hover:text-slate-900'
-              }`}
-            >
-              {item.title}
-            </button>
-          ))}
-        </div>
+    <div className="sticky top-4 z-40 mb-10 flex justify-center px-4">
+      {/* ใช้ CSS ง่ายๆ ที่ไม่มีวันพัง */}
+      <div className="glass-panel rounded-full p-1.5 flex gap-1 max-w-full overflow-x-auto no-scrollbar shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]">
+        {allItems.map((item) => (
+          <button
+            key={item.id}
+            onClick={() => onSelectCategory(item.id)}
+            className={`flex-shrink-0 px-6 py-2.5 rounded-full text-[15px] font-bold transition-all duration-300 whitespace-nowrap select-none ${
+              selectedCategory === item.id
+                ? 'bg-white text-slate-900 shadow-sm scale-105'
+                : 'text-slate-500 hover:text-slate-700 hover:bg-white/40'
+            }`}
+          >
+            {item.title}
+          </button>
+        ))}
       </div>
     </div>
   );
