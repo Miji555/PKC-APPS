@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Category } from '../types.ts';
 
@@ -9,16 +8,22 @@ interface CategorySectionProps {
 export const CategorySection: React.FC<CategorySectionProps> = ({ category }) => {
   if (category.apps.length === 0) return null;
 
-  // Helper to extract Apple ID
   const getAppleId = (url: string) => {
     if (!url) return null;
     const match = url.match(/id(\d+)/);
     return match ? match[1] : null;
   };
 
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('?')) {
+      e.preventDefault();
+      window.history.pushState({}, '', href);
+      window.dispatchEvent(new PopStateEvent('popstate'));
+    }
+  };
+
   return (
-    <div className="border border-[#d0d7de] rounded-md overflow-hidden">
-      {/* Category Header Bar */}
+    <div className="border border-[#d0d7de] rounded-md overflow-hidden mb-6">
       <div className="bg-[#f6f8fa] px-4 py-3 border-b border-[#d0d7de] flex items-center justify-between">
         <div className="flex items-center space-x-2">
           <svg className="w-4 h-4 text-[#636c76]" viewBox="0 0 16 16" fill="currentColor">
@@ -29,7 +34,6 @@ export const CategorySection: React.FC<CategorySectionProps> = ({ category }) =>
         <span className="text-xs text-[#636c76]">{category.apps.length} items</span>
       </div>
       
-      {/* App Rows */}
       <div className="divide-y divide-[#d0d7de]">
         {category.apps.map((app) => {
           const appleId = getAppleId(app.url);
@@ -56,6 +60,7 @@ export const CategorySection: React.FC<CategorySectionProps> = ({ category }) =>
                 <div className="flex flex-col truncate">
                   <a 
                     href={href}
+                    onClick={(e) => handleLinkClick(e, href)}
                     className="text-[#0969da] font-medium hover:underline text-sm truncate"
                   >
                     {app.name}
@@ -70,6 +75,7 @@ export const CategorySection: React.FC<CategorySectionProps> = ({ category }) =>
               
               <a 
                 href={href}
+                onClick={(e) => handleLinkClick(e, href)}
                 className="text-xs font-medium text-[#1f2328] bg-white border border-[#d0d7de] px-2 py-1 rounded shadow-sm hover:bg-[#f3f4f6] transition-colors whitespace-nowrap opacity-0 group-hover:opacity-100 focus:opacity-100"
               >
                 Download
