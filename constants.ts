@@ -19,6 +19,13 @@ export const CATEGORIES: Category[] = [
         subtitle: 'สุดยอดเกม MOBA 5v5',
         url: 'https://apps.apple.com/th/app/garena-rov-5v5-festival/id1150337432',
         icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/21/92/8a/21928ab1-2a6c-e06a-9351-831518f9746b/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/100x100bb.png'
+      },
+      {
+        id: 'efootball',
+        name: 'eFootball™',
+        subtitle: 'ที่สุดของเกมฟุตบอลสมจริง',
+        url: 'https://apps.apple.com/th/app/efootball/id1117270703?l=th',
+        icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/10/7c/82/107c828c-482a-9e2c-6330-84c68023758b/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/100x100bb.png'
       }
     ]
   },

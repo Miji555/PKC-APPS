@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Category } from '../types.ts';
 
 interface CategorySectionProps {
@@ -6,6 +6,10 @@ interface CategorySectionProps {
 }
 
 export const CategorySection: React.FC<CategorySectionProps> = ({ category }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const INITIAL_COUNT = 6;
+  const hasMore = category.apps.length > INITIAL_COUNT;
+  
   if (category.apps.length === 0) return null;
 
   const getAppleId = (url: string) => {
@@ -22,8 +26,11 @@ export const CategorySection: React.FC<CategorySectionProps> = ({ category }) =>
     }
   };
 
+  const displayedApps = isExpanded ? category.apps : category.apps.slice(0, INITIAL_COUNT);
+
   return (
-    <div className="border border-[#d0d7de] rounded-md overflow-hidden mb-6">
+    <div className="border border-[#d0d7de] rounded-md overflow-hidden mb-6 shadow-sm">
+      {/* Category Header Bar */}
       <div className="bg-[#f6f8fa] px-4 py-3 border-b border-[#d0d7de] flex items-center justify-between">
         <div className="flex items-center space-x-2">
           <svg className="w-4 h-4 text-[#636c76]" viewBox="0 0 16 16" fill="currentColor">
@@ -31,11 +38,12 @@ export const CategorySection: React.FC<CategorySectionProps> = ({ category }) =>
           </svg>
           <span className="font-semibold text-[#1f2328] text-sm">{category.title}</span>
         </div>
-        <span className="text-xs text-[#636c76]">{category.apps.length} items</span>
+        <span className="text-xs text-[#636c76] font-medium">{category.apps.length} items</span>
       </div>
       
+      {/* App Rows */}
       <div className="divide-y divide-[#d0d7de]">
-        {category.apps.map((app) => {
+        {displayedApps.map((app) => {
           const appleId = getAppleId(app.url);
           const href = appleId ? `?appId=${appleId}` : app.url;
 
@@ -83,6 +91,30 @@ export const CategorySection: React.FC<CategorySectionProps> = ({ category }) =>
             </div>
           );
         })}
+
+        {/* Show More / Show Less Button */}
+        {hasMore && (
+          <button
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="w-full px-4 py-3 text-sm font-medium text-[#0969da] hover:bg-[#f6f8fa] transition-colors flex items-center justify-center space-x-1"
+          >
+            {isExpanded ? (
+              <>
+                <span>แสดงน้อยลง</span>
+                <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clipRule="evenodd" />
+                </svg>
+              </>
+            ) : (
+              <>
+                <span>ดูเพิ่มเติม ({category.apps.length - INITIAL_COUNT})</span>
+                <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                </svg>
+              </>
+            )}
+          </button>
+        )}
       </div>
     </div>
   );
