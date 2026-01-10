@@ -11,9 +11,6 @@ export const Header: React.FC = () => {
       <h1 className="text-3xl font-black text-blue-900 mb-2 tracking-tight">
         Download & Updates
       </h1>
-      <p className="text-blue-500 text-base font-medium bg-blue-50 px-4 py-1 rounded-full">
-        ศูนย์รวมแอปพลิเคชันสำหรับคุณ
-      </p>
     </div>
   );
 };
