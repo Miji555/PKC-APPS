@@ -3,6 +3,7 @@ import { CATEGORIES } from './constants';
 import { CategorySection } from './components/CategorySection';
 import { Header } from './components/Header';
 import { DetailView } from './components/DetailView';
+import { InstructionBanner } from './components/InstructionBanner';
 
 const App: React.FC = () => {
   const [appId, setAppId] = useState<string | null>(null);
@@ -24,6 +25,7 @@ const App: React.FC = () => {
 
         {!appId ? (
           <div className="space-y-6">
+            <InstructionBanner />
             {CATEGORIES.map((category) => (
               <CategorySection key={category.id} category={category} />
             ))}
