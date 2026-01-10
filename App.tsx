@@ -1,7 +1,9 @@
+
 import React from 'react';
-import { CATEGORIES } from './constants.ts';
+import { CATEGORIES, CONTACT_IG } from './constants.ts';
 import { CategorySection } from './components/CategorySection.tsx';
 import { Header } from './components/Header.tsx';
+import { ContactInfo } from './components/ContactInfo.tsx';
 
 const App: React.FC = () => {
   return (
@@ -26,6 +28,11 @@ const App: React.FC = () => {
               </ul>
             </div>
           </div>
+        </div>
+
+        {/* Contact IG Section */}
+        <div className="mb-8">
+          <ContactInfo igHandle={CONTACT_IG} />
         </div>
 
         {/* App Lists */}
