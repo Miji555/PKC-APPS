@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import { Category } from '../types.ts';
 
 interface CategorySectionProps {
@@ -7,7 +6,13 @@ interface CategorySectionProps {
 }
 
 export const CategorySection: React.FC<CategorySectionProps> = ({ category }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  
   if (category.apps.length === 0) return null;
+
+  const LIMIT = 4;
+  const hasMore = category.apps.length > LIMIT;
+  const displayedApps = isExpanded ? category.apps : category.apps.slice(0, LIMIT);
 
   // Helper to extract Apple ID
   const getAppleId = (url: string) => {
@@ -17,7 +22,7 @@ export const CategorySection: React.FC<CategorySectionProps> = ({ category }) =>
   };
 
   return (
-    <div className="border border-[#d0d7de] rounded-md overflow-hidden">
+    <div className="border border-[#d0d7de] rounded-md overflow-hidden bg-white shadow-sm">
       {/* Category Header Bar */}
       <div className="bg-[#f6f8fa] px-4 py-3 border-b border-[#d0d7de] flex items-center justify-between">
         <div className="flex items-center space-x-2">
@@ -31,7 +36,7 @@ export const CategorySection: React.FC<CategorySectionProps> = ({ category }) =>
       
       {/* App Rows */}
       <div className="divide-y divide-[#d0d7de]">
-        {category.apps.map((app) => {
+        {displayedApps.map((app) => {
           const appleId = getAppleId(app.url);
           const href = appleId ? `?appId=${appleId}` : app.url;
 
@@ -45,11 +50,11 @@ export const CategorySection: React.FC<CategorySectionProps> = ({ category }) =>
                   <img 
                     src={app.icon} 
                     alt="" 
-                    className="w-5 h-5 rounded-sm flex-shrink-0"
+                    className="w-8 h-8 rounded-lg flex-shrink-0"
                     referrerPolicy="no-referrer"
                   />
                 ) : (
-                  <svg className="w-4 h-4 text-[#636c76] flex-shrink-0" viewBox="0 0 16 16" fill="currentColor">
+                  <svg className="w-8 h-8 text-[#636c76] flex-shrink-0" viewBox="0 0 16 16" fill="currentColor">
                     <path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l3.25 3.25c.33.328.513.773.513 1.237v9.25A1.75 1.75 0 0113.586 16H3.75A1.75 1.75 0 012 14.25V1.75zm1.75-.25a.25.25 0 00-.25.25v12.5c0 .138.112.25.25.25h9.836a.25.25 0 00.25-.25V5.25H10.25a.75.75 0 01-.75-.75V1.5H3.75zM11 4.25h2.336L11 1.914v2.336z"></path>
                   </svg>
                 )}
@@ -70,7 +75,7 @@ export const CategorySection: React.FC<CategorySectionProps> = ({ category }) =>
               
               <a 
                 href={href}
-                className="text-xs font-medium text-[#1f2328] bg-white border border-[#d0d7de] px-2 py-1 rounded shadow-sm hover:bg-[#f3f4f6] transition-colors whitespace-nowrap opacity-0 group-hover:opacity-100 focus:opacity-100"
+                className="text-xs font-medium text-[#1f2328] bg-white border border-[#d0d7de] px-3 py-1.5 rounded shadow-sm hover:bg-[#f3f4f6] transition-colors whitespace-nowrap opacity-0 group-hover:opacity-100 focus:opacity-100"
               >
                 Download
               </a>
@@ -78,6 +83,23 @@ export const CategorySection: React.FC<CategorySectionProps> = ({ category }) =>
           );
         })}
       </div>
+
+      {/* Show More/Less Button */}
+      {hasMore && (
+        <button
+          onClick={() => setIsExpanded(!isExpanded)}
+          className="w-full py-2.5 bg-white text-[#0969da] text-xs font-semibold hover:bg-[#f6f8fa] transition-colors border-t border-[#d0d7de] flex items-center justify-center space-x-1"
+        >
+          <span>{isExpanded ? 'แสดงน้อยลง' : `ดูเพิ่มเติม (${category.apps.length - LIMIT} แอพ)`}</span>
+          <svg 
+            className={`w-3 h-3 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`} 
+            viewBox="0 0 16 16" 
+            fill="currentColor"
+          >
+            <path d="M4.47 7.47a.75.75 0 0 1 1.06 0L8 9.94l2.47-2.47a.75.75 0 1 1 1.06 1.06l-3 3a.75.75 0 0 1-1.06 0l-3-3a.75.75 0 0 1 0-1.06z"></path>
+          </svg>
+        </button>
+      )}
     </div>
   );
 };
