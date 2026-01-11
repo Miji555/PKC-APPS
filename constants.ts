@@ -93,6 +93,34 @@ export const CATEGORIES: Category[] = [
         subtitle: 'วิดีโอ, เพลง และสตรีมสด',
         url: 'https://apps.apple.com/th/app/youtube/id544007664?l=th',
         icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/2d/3a/0d/2d3a0d33-7f61-3951-8315-18f9746b5208/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/100x100bb.png'
+      },
+      {
+        id: 'disney',
+        name: 'Disney+ Hotstar',
+        subtitle: 'สตรีมมิ่งจาก Disney, Marvel, Star Wars',
+        url: 'https://apps.apple.com/th/app/disney-hotstar/id1524156685?l=th',
+        icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/44/22/01/4422019a-7f61-3951-8315-18f9746b5208/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/100x100bb.png'
+      },
+      {
+        id: 'viu',
+        name: 'Viu',
+        subtitle: 'ซีรีส์เกาหลีและเอเชียยอดนิยม',
+        url: 'https://apps.apple.com/th/app/viu/id1036095179?l=th',
+        icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/3d/8a/61/3d8a613b-7f61-3951-8315-18f9746b5208/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/100x100bb.png'
+      },
+      {
+        id: 'wetv',
+        name: 'WeTV',
+        subtitle: 'ซีรีส์และอนิเมะจีนระดับพรีเมียม',
+        url: 'https://apps.apple.com/th/app/wetv/id1441531611?l=th',
+        icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f1/9a/61/f19a613b-7f61-3951-8315-18f9746b5208/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/100x100bb.png'
+      },
+      {
+        id: 'trueid',
+        name: 'TrueID',
+        subtitle: 'ความบันเทิงและกีฬาครบจบในแอปเดียว',
+        url: 'https://apps.apple.com/th/app/trueid/id1013814221?l=th',
+        icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e2/8a/61/e28a613b-7f61-3951-8315-18f9746b5208/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/100x100bb.png'
       }
     ]
   },
