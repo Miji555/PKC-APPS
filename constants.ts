@@ -85,6 +85,40 @@ export const CATEGORIES: Category[] = [
     ]
   },
   {
+    id: 'ai-google',
+    title: 'AI & Google',
+    apps: [
+      {
+        id: 'gemini',
+        name: 'Google Gemini',
+        subtitle: 'แชทกับ AI จาก Google',
+        url: 'https://apps.apple.com/th/app/google-gemini/id6477489729?l=th',
+        icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4a/04/00/4a040082-9092-23c5-6804-06927d118933/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/100x100bb.png'
+      },
+      {
+        id: 'chatgpt',
+        name: 'ChatGPT',
+        subtitle: 'AI แชทบอทจาก OpenAI',
+        url: 'https://apps.apple.com/th/app/chatgpt/id6448311069?l=th',
+        icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/18/d8/67/18d867c2-9e2c-47d0-1498-5c493c403330/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/100x100bb.png'
+      },
+      {
+        id: 'grok',
+        name: 'Grok',
+        subtitle: 'AI จาก xAI ของ Elon Musk',
+        url: 'https://apps.apple.com/th/app/grok/id6670324846?l=th',
+        icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/91/9e/7b/919e7b30-c831-50e5-7973-206e0176f183/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/100x100bb.png'
+      },
+      {
+        id: 'google-search',
+        name: 'Google',
+        subtitle: 'ค้นหาข้อมูลที่คุณต้องการ',
+        url: 'https://apps.apple.com/th/app/google/id284815942?l=th',
+        icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b8/8d/61/b88d613b-2831-2831-6e3e-7977a423758b/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/100x100bb.png'
+      }
+    ]
+  },
+  {
     id: 'sns',
     title: 'SNS',
     apps: [
@@ -184,6 +218,20 @@ export const CATEGORIES: Category[] = [
     id: 'utility',
     title: 'Utility',
     apps: [
+      {
+        id: 'gmail',
+        name: 'Gmail',
+        subtitle: 'อีเมลที่ปลอดภัยและจัดระเบียบ',
+        url: 'https://apps.apple.com/th/app/gmail-%E0%B8%AD-%E0%B9%80%E0%B8%A1%E0%B8%A5%E0%B8%88%E0%B8%B2%E0%B8%81-google/id422689480?l=th',
+        icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8d/62/1d/8d621d74-2c26-5384-6330-84c68023758b/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/100x100bb.png'
+      },
+      {
+        id: 'google-drive',
+        name: 'Google Drive',
+        subtitle: 'เก็บและแชร์ไฟล์ได้ทุกที่',
+        url: 'https://apps.apple.com/th/app/google-%E0%B9%84%E0%B8%94%E0%B8%A3%E0%B8%9F/id507874739?l=th',
+        icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/21/92/8a/21928ab1-2a6c-e06a-9351-831518f9746b/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/100x100bb.png'
+      },
       {
         id: 'meitu',
         name: 'Meitu- Photo & Video Editor',
