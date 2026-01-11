@@ -84,16 +84,25 @@ const DetailView: React.FC<{ appId: string }> = ({ appId }) => {
 
 const App: React.FC = () => {
   const [appId, setAppId] = useState<string | null>(null);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     setAppId(params.get('appId'));
   }, []);
 
+  const filteredCategories = CATEGORIES.map(category => ({
+    ...category,
+    apps: category.apps.filter(app => 
+      app.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+      (app.subtitle && app.subtitle.toLowerCase().includes(searchTerm.toLowerCase()))
+    )
+  })).filter(category => category.apps.length > 0);
+
   return (
     <div className="min-h-screen bg-white py-8 px-4 flex flex-col items-center">
       <div className="w-full max-w-3xl">
-        <Header />
+        <Header searchTerm={searchTerm} onSearchChange={setSearchTerm} />
 
         {!appId ? (
           <>
@@ -115,9 +124,18 @@ const App: React.FC = () => {
             </div>
 
             <div className="space-y-6">
-              {CATEGORIES.map((category) => (
-                <CategorySection key={category.id} category={category} />
-              ))}
+              {filteredCategories.length > 0 ? (
+                filteredCategories.map((category) => (
+                  <CategorySection key={category.id} category={category} />
+                ))
+              ) : (
+                <div className="text-center py-12 border border-dashed border-[#d0d7de] rounded-md">
+                  <svg className="w-12 h-12 text-[#636c76] mx-auto mb-3 opacity-50" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M10.68 11.74a6 6 0 1 1 1.06-1.06l3.91 3.91a.75.75 0 1 1-1.06 1.06l-3.91-3.91zM11 7a4 4 0 1 0-8 0 4 4 0 0 0 8 0z" />
+                  </svg>
+                  <p className="text-[#636c76]">ไม่พบแอปที่คุณค้นหา</p>
+                </div>
+              )}
             </div>
           </>
         ) : (
