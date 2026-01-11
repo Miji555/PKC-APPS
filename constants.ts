@@ -81,6 +81,13 @@ export const CATEGORIES: Category[] = [
         subtitle: 'สร้างอาณาจักรคุกกี้และออกผจญภัย',
         url: 'https://apps.apple.com/th/app/cookierun-kingdom/id1509450845?l=th',
         icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e2/8a/61/e28a613b-7f61-3951-8315-18f9746b5208/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/100x100bb.png'
+      },
+      {
+        id: 'terraria',
+        name: 'Terraria',
+        subtitle: 'ขุด ต่อสู้ สำรวจ สร้าง!',
+        url: 'https://apps.apple.com/th/app/terraria/id640364616?l=th',
+        icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3d/8a/61/3d8a613b-7f61-3951-8315-18f9746b5208/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/100x100bb.png'
       }
     ]
   },
@@ -127,21 +134,21 @@ export const CATEGORIES: Category[] = [
         name: 'Notes',
         subtitle: 'จดบันทึกและจัดระเบียบความคิด',
         url: 'https://apps.apple.com/th/app/notes/id1609361989?l=th',
-        icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8d/62/1d/8d621d74-2c26-5384-6330-84c68023758b/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/100x100bb.png' // Example icon
+        icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8d/62/1d/8d621d74-2c26-5384-6330-84c68023758b/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/100x100bb.png'
       },
       {
         id: 'goodnotes',
         name: 'Goodnotes AI โน้ต & เอกสาร PDF',
         subtitle: 'จดบันทึกด้วย AI และแก้ไข PDF',
         url: 'https://apps.apple.com/th/app/goodnotes-ai-%E0%B9%82%E0%B8%99-%E0%B8%95-%E0%B9%80%E0%B8%AD%E0%B8%81%E0%B8%AA%E0%B8%B2%E0%B8%A3-pdf/id1444383602?l=th',
-        icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/21/92/8a/21928ab1-2a6c-e06a-9351-831518f9746b/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/100x100bb.png' // Example icon
+        icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/21/92/8a/21928ab1-2a6c-e06a-9351-831518f9746b/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/100x100bb.png'
       },
       {
         id: 'notability',
         name: 'Notability: Smarter AI Notes',
         subtitle: 'บันทึก จด และวาดความคิดของคุณ',
         url: 'https://apps.apple.com/th/app/notability-smarter-ai-notes/id360593530?l=th',
-        icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a4/0a/61/a40a6184-7f61-3951-8315-18f9746b5208/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/100x100bb.png' // Example icon
+        icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a4/0a/61/a40a6184-7f61-3951-8315-18f9746b5208/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/100x100bb.png'
       }
     ]
   },

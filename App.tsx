@@ -114,8 +114,9 @@ const App: React.FC = () => {
                   </svg>
                 </div>
                 <div className="text-yellow-800 text-sm font-medium leading-relaxed">
-                  <p className="font-bold mb-1">คำเตือน (Warning)</p>
+                  <p className="font-bold mb-1">การใช้งาน (Usage)</p>
                   <ul className="list-disc list-inside space-y-1">
+                    <li>หากต้องการดาวน์โหลดแอปพลิเคชันที่ต้องชำระเงิน ต้องกดซื้อใน App store บน iPhone หรือ iPad ที่ใช้ Apple ID เดียวกับ iPad ของโรงเรียนก่อน จึงจะสามารถดาวน์โหลดแอปพลิเคชันได้</li>
                     <li>ต้องเข้าสู่ระบบ Apple ID ก่อนเท่านั้น จึงจะสามารถดาวน์โหลดแอปพลิเคชันได้</li>
                     <li>เมื่อดาวน์โหลดแอปพลิเคชันแล้วจะไม่สามารถลบแอปพลิเคชันได้</li>
                   </ul>
