@@ -183,6 +183,34 @@ export const CATEGORIES: Category[] = [
         subtitle: 'วิดีโอสั้นเพื่อความบันเทิง',
         url: 'https://apps.apple.com/th/app/tiktok/id1235601864?l=th',
         icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/18/d8/67/18d867c2-9e2c-47d0-1498-5c493c403330/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/100x100bb.png'
+      },
+      {
+        id: 'discord',
+        name: 'Discord',
+        subtitle: 'คุย เล่น ส่งสรรค์',
+        url: 'https://apps.apple.com/th/app/discord-%E0%B8%84-%E0%B8%A2-%E0%B9%80%E0%B8%A5-%E0%B8%99%E0%B8%AA-%E0%B8%87%E0%B8%AA%E0%B8%A3%E0%B8%A3%E0%B8%84/id985746746?l=th',
+        icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/71/3b/6e/713b6e74-7f61-3951-8315-18f9746b5208/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/100x100bb.png'
+      },
+      {
+        id: 'reddit',
+        name: 'Reddit',
+        subtitle: 'Dive into anything',
+        url: 'https://apps.apple.com/th/app/reddit/id1064216828?l=th',
+        icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/44/22/01/4422019a-7f61-3951-8315-18f9746b5208/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/100x100bb.png'
+      },
+      {
+        id: 'tinder',
+        name: 'Tinder',
+        subtitle: 'Dating app, แชท, Meet',
+        url: 'https://apps.apple.com/th/app/tinder-dating-app-%E0%B9%81%E0%B8%8A%E0%B8%97-meet/id547702041?l=th',
+        icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/3d/8a/61/3d8a613b-7f61-3951-8315-18f9746b5208/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/100x100bb.png'
+      },
+      {
+        id: 'omi',
+        name: 'Omi',
+        subtitle: 'ออกเดท พบเพื่อน',
+        url: 'https://apps.apple.com/th/app/omi-%E0%B8%AD%E0%B8%AD%E0%B8%81%E0%B9%80%E0%B8%94%E0%B8%97-%E0%B8%9E%E0%B8%9A%E0%B9%80%E0%B8%9E-%E0%B8%AD%E0%B8%99/id1347676495?l=th',
+        icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/2d/3a/0d/2d3a0d33-7f61-3951-8315-18f9746b5208/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/100x100bb.png'
       }
     ]
   },
@@ -203,6 +231,13 @@ export const CATEGORIES: Category[] = [
         subtitle: 'ซีรีส์, วาไรตี้โชว์',
         url: 'https://apps.apple.com/th/app/iqiyi/id1461999674?l=th',
         icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/37/6c/3d/376c3d52-7360-3951-8315-18f9746b5208/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/100x100bb.png'
+      },
+      {
+        id: 'capcut',
+        name: 'CapCut',
+        subtitle: 'โปรแกรมตัดต่อวิดีโอ',
+        url: 'https://apps.apple.com/th/app/capcut-%E0%B9%82%E0%B8%9B%E0%B8%A3%E0%B9%81%E0%B8%81%E0%B8%A3%E0%B8%A1%E0%B8%95-%E0%B  8%94%E0%B8%95-%E0%B8%AD%E0%B8%A7-%E0%B8%94-%E0%B9%82%E0%B8%AD/id1500855883?l=th',
+        icon: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4a/04/00/4a040082-9092-23c5-6804-06927d118933/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/100x100bb.png'
       },
       {
         id: 'bilibili',
